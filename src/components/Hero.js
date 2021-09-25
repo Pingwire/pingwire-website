@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Button from './Button';
+
 const StyledHero = styled('div')`
-  min-height: 35rem;
+  min-height: 30rem;
   background-image: url("./assets/images/hero.svg");
   background-size: cover;
   background-position: bottom right;
@@ -34,20 +36,6 @@ const StyledHeadline = styled('h1')`
   margin-bottom: 2rem;
 `;
 
-const StyledButton = styled('button')`
-  text-decoration: none;
-  color: white;
-  padding: 1rem 2rem;
-  background-color: #00C390;
-  align-self: flex-start;
-  cursor: pointer;
-  border-radius: 5px;
-
-  &:hover {
-    background-color: #00916B;
-  }
-`;
-
 const Hero = () => (
   <StyledHero>
     <StyledHeader>
@@ -57,9 +45,9 @@ const Hero = () => (
       <StyledHeadline>
         Utilising data for greater insights of money laundering and terrorism finansing risks
       </StyledHeadline>
-      <StyledButton as="a" href="mailto:sales@pingwire.io">
+      <Button as="a" href="mailto:sales@pingwire.io">
         Contact sales
-      </StyledButton>
+      </Button>
     </StyledHeroContent>
   </StyledHero>
 );
