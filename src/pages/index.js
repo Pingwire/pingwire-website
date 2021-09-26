@@ -1,14 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Hero from '../components/Hero';
-import Footer from '../components/Footer';
+import Page from '../components/Page';
 import Button from '../components/Button';
-
-const StyledPage = styled('div')`
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-`;
 
 const StyledSection = styled('section')`
   display: flex;
@@ -38,7 +32,7 @@ const StyledFlexBox = styled('div')`
 `;
 
 const Home = () => (
-  <StyledPage>
+  <Page>
     <Hero />
     <StyledSection>
       <StyledSubHeadline>Pingwire&apos;s Solution</StyledSubHeadline>
@@ -53,8 +47,7 @@ const Home = () => (
         <Button as="a" href="mailto:sales@pingwire.io">Contact Sales</Button>
       </StyledFlexBox>
     </StyledSection>
-    <Footer />
-  </StyledPage>
+  </Page>
 );
 
 export default Home;
