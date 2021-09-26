@@ -8,9 +8,19 @@ const StyledHero = styled('div')`
   background-image: url("./assets/images/hero.svg");
   background-size: cover;
   background-position: bottom right;
-  padding: 3rem 4rem;
+  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 768px) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  @media (min-width: 1440px) {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
 `;
 
 const StyledHeroContent = styled('div')`

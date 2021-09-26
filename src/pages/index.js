@@ -7,8 +7,13 @@ import Button from '../components/Button';
 const StyledSection = styled('section')`
   display: flex;
   flex-direction: column;
-  padding: 3rem 4rem;
+  padding: 3rem 2rem;
   ${(props) => (props.background ? 'background-color: rgba(209, 237, 221, 0.4);' : '')}
+
+  @media (min-width: 768px) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 `;
 
 const StyledParagraph = styled('p')`
