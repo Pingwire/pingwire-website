@@ -6,6 +6,7 @@ module.exports = {
     'max-len': ['error', {
       code: 100,
       ignorePattern: '<[a-zA-Z0-9]*>',
+      ignoreStrings: true,
     }],
   },
 };
