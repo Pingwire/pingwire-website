@@ -53,7 +53,7 @@ const Hero = () => (
     </StyledHeader>
     <StyledHeroContent>
       <StyledHeadline>
-        Utilising data for greater insights of money laundering and terrorism finansing risks
+        Utilizing big data in an effective way to improve your AML &amp; CTF processes
       </StyledHeadline>
       <Button as="a" href="mailto:sales@pingwire.io">
         Contact sales
