@@ -940,8 +940,7 @@ const Home = () => (
           />
           <HeroHeadline2688816>
             <Text564>
-              The next generation solution to combat ML &amp; CT
-              <span />
+              The next generation solution to combat money-laundering and terrorism financing
             </Text564>
             <Text565>
               Pingwire is a software service helping companies to be fully
@@ -2169,7 +2168,7 @@ const Text060 = styled('span')({
   'align-self': 'auto',
   'font-style': 'normal',
   'text-align': 'left',
-  'font-family': 'IBM Plex Mono',
+  'font-family': 'Roboto Mono',
   'font-weight': '600px',
   'line-height': 'normal',
   'font-stretch': 'normal',
@@ -2184,7 +2183,7 @@ const Text061 = styled('span')({
   'align-self': 'auto',
   'font-style': 'normal',
   'text-align': 'left',
-  'font-family': 'IBM Plex Mono',
+  'font-family': 'Roboto Mono',
   'font-weight': '600px',
   'line-height': 'normal',
   'font-stretch': 'normal',
@@ -10599,9 +10598,9 @@ const HeroHeadline2688816 = styled('div')({
 
 const Text564 = styled('span')({
   top: '0px',
-  left: '0px',
+  left: '-100px',
   color: '#214032',
-  width: '786px',
+  width: '986px',
   height: 'auto',
   'font-size': '48px',
   position: 'absolute',
@@ -10616,7 +10615,7 @@ const Text564 = styled('span')({
 });
 
 const Text565 = styled('span')({
-  top: '180px',
+  top: '280px',
   left: '66px',
   color: '#201F1F',
   width: '654px',
@@ -10647,7 +10646,7 @@ const Group1132688819 = styled('div')({
 });
 
 const Group1142688820 = styled('div')({
-  top: '0px',
+  top: '100px',
   left: '0px',
   width: '95%',
   height: '95%',
