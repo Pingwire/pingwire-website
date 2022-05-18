@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { StaticImage } from 'gatsby-plugin-image';
+import LineBreak from './LineBreak';
+import Button from './Button';
 
 const StyledCopyRightText = styled('text')`
   color: rgba(42, 42, 42, 1);
@@ -17,117 +20,93 @@ const StyledCopyRightText = styled('text')`
 `;
 
 const StyledFooter = styled('div')`
-  width: 1440px;
+  width: 80%;
   display: flex;
   padding: 0 0 32px 0;
   box-sizing: border-box;
   align-items: center;
   flex-shrink: 1;
-  border-color: transparent;
   flex-direction: column;
 `;
 
-const StyledLine = styled('hr')`
-  width: 1440px;
-  margin: 0 0 47px 0;
-  color: rgba(33, 64, 50, 0.2);
-`;
-
 const Frame = styled('div')`
-  width: 1128px;
   height: 36px;
-  margin: 0 0 40px 0;
+  margin: 10px 0 40px 0;
   display: flex;
-  position: relative;
   box-sizing: border-box;
-  align-items: flex-start;
+  align-items: center;
   flex-shrink: 1;
   border-color: transparent;
 `;
 
 const GruopItems = styled('div')`
-  top: 0px;
-  left: 0px;
   width: 1128px;
   display: flex;
-  position: absolute;
   box-sizing: border-box;
   align-items: center;
   border-color: transparent;
   justify-content: space-between;
 `;
 
-const Logo = styled('img')`
-  width: 168px;
-  height: 36px;
-  position: relative;
-  object-fit: cover;
-  border-color: transparent;
-`;
-
 const InPageNavigationGroup = styled('div')`
   display: flex;
+  left: -7%;
   position: relative;
-  width: 50%;
+  width: 55%;
   box-sizing: border-box;
-  align-items: flex-start;
   flex-shrink: 1;
-  border-color: transparent;
   justify-content: space-between;
 `;
 
 const Text = styled('text')({
   color: '#214032',
   'font-size': '20px',
-  'align-self': 'auto',
-  'font-style': 'normal',
   'text-align': 'center',
   'font-family': 'Roboto Mono',
   'font-weight': '500px',
-  'line-height': 'normal',
-  'font-stretch': 'normal',
-  'text-decoration': 'none',
-});
-
-const LinkedInLogo = styled('img')({
-  width: '168px',
-  height: '36px',
-  position: 'relative',
-  'object-fit': 'cover',
-  'border-color': 'transparent',
 });
 
 const Footer = () => (
   <StyledFooter>
-    <StyledLine />
-    <div>
-      <Frame>
-        <GruopItems>
-          <Logo
-            alt="Pingwirelogo42688181"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTY4JyBoZWlnaHQ9JzM2JyB2aWV3Qm94PScwIDAgMTY4IDM2JyBmaWxsPSdub25lJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPgo8cGF0aCBkPSdNMTkuMTE1MiAxMS43NzQ0QzIwLjM4NiAxMC4yODk0IDIyLjI3NzEgOS41NDY4OCAyNC43ODg0IDkuNTQ2ODhDMjcuMTQ4NCA5LjU0Njg4IDI5LjEgMTAuNDg2NCAzMC42NDMxIDEyLjM2NTRDMzIuMjE2NCAxNC4yNDQ1IDMzLjAwMzEgMTYuNDU2OSAzMy4wMDMxIDE5LjAwMjdDMzMuMDAzMSAyMS43NjA2IDMyLjIzMTUgMjQuMDYzOSAzMC42ODg0IDI1LjkxMjZDMjkuMTQ1MyAyNy43NjE0IDI3LjE0ODQgMjguNjg1NyAyNC42OTc2IDI4LjY4NTdDMjIuMDY1MyAyOC42ODU3IDIwLjIzNDcgMjcuOTI4MSAxOS4yMDYgMjYuNDEyN0wxOS4xMTUyIDM1LjY4NjZIMTQuNzEyOVYxMC4xMzc5SDE5LjExNTJWMTEuNzc0NFpNMjguNTEgMTkuMDkzNkMyOC41MSAxNy41NDc5IDI4LjA3MTIgMTYuMjE0NCAyNy4xOTM4IDE1LjA5MzFDMjYuMzE2MyAxMy45NDE0IDI1LjEwNjEgMTMuMzY1NiAyMy41NjMgMTMuMzY1NkMyMi4xNDA5IDEzLjM2NTYgMjAuOTYwOSAxMy45NDE0IDIwLjAyMjkgMTUuMDkzMUMxOS4wODUgMTYuMjQ0NyAxOC42MTYgMTcuNTc4MiAxOC42MTYgMTkuMDkzNkMxOC42MTYgMjAuNTc4NiAxOS4xMTUyIDIxLjkxMjEgMjAuMTEzNyAyMy4wOTQxQzIxLjExMjIgMjQuMjc2MSAyMi4yNjE5IDI0Ljg2NzEgMjMuNTYzIDI0Ljg2NzFDMjUuMTA2MSAyNC44NjcxIDI2LjMxNjMgMjQuMzIxNSAyNy4xOTM4IDIzLjIzMDVDMjguMDcxMiAyMi4xMzk0IDI4LjUxIDIwLjc2MDUgMjguNTEgMTkuMDkzNlonIGZpbGw9JyMyMTQwMzInLz4KPHBhdGggZD0nTTQwLjc2NTcgMi41OTEyNUM0MC43NjU3IDMuMjg4MzEgNDAuNTA4NSAzLjg5NDQ1IDM5Ljk5NDIgNC40MDk2NkMzOS40Nzk4IDQuOTI0ODggMzguODc0NyA1LjE4MjQ5IDM4LjE3ODcgNS4xODI0OUMzNy40ODI4IDUuMTgyNDkgMzYuODc3NyA0LjkyNDg4IDM2LjM2MzMgNC40MDk2NkMzNS44NDkgMy44OTQ0NSAzNS41OTE4IDMuMjg4MzEgMzUuNTkxOCAyLjU5MTI1QzM1LjU5MTggMS44OTQxOSAzNS44NDkgMS4yODgwNSAzNi4zNjMzIDAuNzcyODI5QzM2Ljg3NzcgMC4yNTc2MSAzNy40ODI4IDAgMzguMTc4NyAwQzM4Ljg3NDcgMCAzOS40Nzk4IDAuMjU3NjEgMzkuOTk0MiAwLjc3MjgyOUM0MC41MDg1IDEuMjg4MDUgNDAuNzY1NyAxLjg5NDE5IDQwLjc2NTcgMi41OTEyNVpNNDAuNDAyNiAyOC4wOTQ2SDM2LjAwMDNWMTAuMTM3N0g0MC40MDI2VjI4LjA5NDZaJyBmaWxsPScjMjE0MDMyJy8+CjxwYXRoIGQ9J000OS4wMzEzIDExLjc3NDRDNTAuMjcxOCAxMC4yODk0IDUyLjEwMjMgOS41NDY4OCA1NC41MjI5IDkuNTQ2ODhDNTguNjM3OCA5LjU0Njg4IDYwLjY5NTIgMTIuMDc3NSA2MC42OTUyIDE3LjEzODhWMjguMDk0N0g1Ni4zMzgzVjE4LjU5MzVDNTYuMzM4MyAxNC44MDUxIDU1LjE3MzQgMTIuOTEwOSA1Mi44NDM2IDEyLjkxMDlDNTAuMzAyIDEyLjkxMDkgNDkuMDMxMyAxNC45NDE1IDQ5LjAzMTMgMTkuMDAyN1YyOC4wOTQ3SDQ0LjYyODlWMTAuMTM3OUg0OS4wMzEzVjExLjc3NDRaJyBmaWxsPScjMjE0MDMyJy8+CjxwYXRoIGQ9J004MS40MTU5IDI2LjU1MDJDODEuNDE1OSAzMi43MDI1IDc4LjU1NjUgMzUuNzc4NiA3Mi44MzggMzUuNzc4NkM3MC4yOTY0IDM1Ljc3ODYgNjguMTQ4MiAzNS4wODE2IDY2LjM5MzMgMzMuNjg3NUM2NC42Mzg0IDMyLjMyMzcgNjMuNzYxIDMwLjUzNTUgNjMuNzYxIDI4LjMyMzFINjguNDM1N0M2OC40MzU3IDI5LjIwMiA2OC44NzQ0IDMwLjA2NTggNjkuNzUxOSAzMC45MTQ0QzcwLjYyOTIgMzEuNzYzIDcxLjYxMjcgMzIuMTg3MyA3Mi43MDE5IDMyLjE4NzNDNzUuNTc2MyAzMi4xODczIDc3LjAxMzUgMzAuNDU5OCA3Ny4wMTM1IDI3LjAwNDhWMjUuODY4M0M3NS43NzMgMjcuNDQ0MiA3My44ODE5IDI4LjIzMjIgNzEuMzQwMyAyOC4yMzIyQzY4LjgyOSAyOC4yMzIyIDY2Ljg0NzIgMjcuMzUzMyA2NS4zOTQ4IDI1LjU5NTVDNjMuOTcyOCAyMy44Mzc3IDYzLjI2MTcgMjEuNjg1OSA2My4yNjE3IDE5LjE0MDFDNjMuMjYxNyAxNi4zODIyIDY0LjAzMzMgMTQuMDc4OCA2NS41NzY0IDEyLjIzMDFDNjcuMTE5NSAxMC4zODE0IDY5LjExNjUgOS40NTcwMyA3MS41NjcyIDkuNDU3MDNDNzQuMDQ4MyA5LjQ1NzAzIDc1Ljg2MzggMTAuMjI5OSA3Ny4wMTM1IDExLjc3NTVWMTAuMDQ4SDgxLjQxNTlWMjYuNTUwMlpNNzcuNjQ4OCAxOC43MzFDNzcuNjQ4OCAxNy4wOTQ0IDc3LjE5NSAxNS43NzYgNzYuMjg3NCAxNC43NzU5Qzc1LjM3OTcgMTMuNzc1OCA3NC4xODQ1IDEzLjI3NTcgNzIuNzAxOSAxMy4yNzU3QzcxLjIxOTMgMTMuMjc1NyA3MC4wMDkxIDEzLjgyMTIgNjkuMDcxMSAxNC45MTIzQzY4LjE2MzQgMTYuMDAzMyA2Ny43MDk1IDE3LjM4MjMgNjcuNzA5NSAxOS4wNDkyQzY3LjcwOTUgMjIuNjI1NCA2OS4zNzM3IDI0LjQxMzUgNzIuNzAxOSAyNC40MTM1Qzc0LjIxNDggMjQuNDEzNSA3NS40MDk5IDIzLjg4MzIgNzYuMjg3NCAyMi44MjI0Qzc3LjE5NSAyMS43MzE0IDc3LjY0ODggMjAuMzY3NSA3Ny42NDg4IDE4LjczMVonIGZpbGw9JyMyMTQwMzInLz4KPHBhdGggZD0nTTkxLjY4MDggMjEuODY2N0w5Ni40NDU4IDkuNTQ2ODhIOTguMDM0N0wxMDMuMDI3IDIxLjgyMTJMMTA3LjQ3NCAxMC4xMzc5SDExMi4zMzFMMTAzLjk4IDI4LjQ1ODRIMTAxLjc1Nkw5Ny42MjYgMTYuOTU2OUw5Mi45MDYxIDI4LjQ1ODRIOTAuNjM2OEw4Mi40MjE5IDEwLjEzNzlIODcuMjc4NUw5MS42ODA4IDIxLjg2NjdaJyBmaWxsPScjMjE0MDMyJy8+CjxwYXRoIGQ9J00xMTguODYxIDIuNTkxMjVDMTE4Ljg2MSAzLjI4ODMxIDExOC42MDQgMy44OTQ0NSAxMTguMDkgNC40MDk2NkMxMTcuNTc1IDQuOTI0ODggMTE2Ljk3IDUuMTgyNDkgMTE2LjI3NCA1LjE4MjQ5QzExNS41NzggNS4xODI0OSAxMTQuOTczIDQuOTI0ODggMTE0LjQ1OSA0LjQwOTY2QzExMy45NDQgMy44OTQ0NSAxMTMuNjg4IDMuMjg4MzEgMTEzLjY4OCAyLjU5MTI1QzExMy42ODggMS44OTQxOSAxMTMuOTQ0IDEuMjg4MDUgMTE0LjQ1OSAwLjc3MjgyOUMxMTQuOTczIDAuMjU3NjEgMTE1LjU3OCAwIDExNi4yNzQgMEMxMTYuOTcgMCAxMTcuNTc1IDAuMjU3NjEgMTE4LjA5IDAuNzcyODI5QzExOC42MDQgMS4yODgwNSAxMTguODYxIDEuODk0MTkgMTE4Ljg2MSAyLjU5MTI1Wk0xMTguNDk4IDI4LjA5NDZIMTE0LjA5NVYxMC4xMzc3SDExOC40OThWMjguMDk0NlonIGZpbGw9JyMyMTQwMzInLz4KPHBhdGggZD0nTTEyNy4xMjUgMTIuMDAxN0MxMjguMjQ0IDEwLjM2NTIgMTI5Ljk5OSA5LjU0Njg4IDEzMi4zOSA5LjU0Njg4QzEzMy4xNDYgOS41NDY4OCAxMzMuODQyIDkuNjk4NDEgMTM0LjQ3OCAxMC4wMDE1TDEzMy45MzMgMTQuMDAyQzEzMy4yNjcgMTMuNTc3NyAxMzIuNTQxIDEzLjM2NTYgMTMxLjc1NSAxMy4zNjU2QzEyOC42NjggMTMuMzY1NiAxMjcuMTI1IDE1LjU3OCAxMjcuMTI1IDIwLjAwMjhWMjguMDk0N0gxMjIuNzIzVjEwLjEzNzlIMTI3LjEyNVYxMi4wMDE3WicgZmlsbD0nIzIxNDAzMicvPgo8cGF0aCBkPSdNMTM5LjUxMyAxOS41NDgyQzEzOS41MTMgMjEuMjc1NyAxMzkuODkgMjIuNzAwMSAxNDAuNjQ3IDIzLjgyMTVDMTQxLjQwMyAyNC45NDI4IDE0Mi40NDcgMjUuNTAzNSAxNDMuNzc5IDI1LjUwMzVDMTQ1Ljg2NyAyNS41MDM1IDE0Ny4xOTggMjQuNDczMSAxNDcuNzcyIDIyLjQxMjJMMTUxLjk0OCAyMy4wOTQxQzE1MC41ODYgMjYuODIxOCAxNDcuODYzIDI4LjY4NTcgMTQzLjc3OSAyOC42ODU3QzE0MS4wNTYgMjguNjg1NyAxMzguODc3IDI3LjgyMiAxMzcuMjQzIDI2LjA5NDVDMTM1LjYzOSAyNC4zMzY3IDEzNC44MzggMjIuMDYzNyAxMzQuODM4IDE5LjI3NTRDMTM0LjgzOCAxNi4zMzU2IDEzNS42MDkgMTMuOTg2OCAxMzcuMTUyIDEyLjIyOUMxMzguNzI2IDEwLjQ0MDkgMTQwLjg0NCA5LjU0Njg4IDE0My41MDYgOS41NDY4OEMxNDYuMTk5IDkuNTQ2ODggMTQ4LjI4NyAxMC4zOTU1IDE0OS43NyAxMi4wOTI3QzE1MS4yODMgMTMuNzU5NSAxNTIuMDM5IDE2LjA0NzcgMTUyLjAzOSAxOC45NTcyVjE5LjU0ODJIMTM5LjUxM1pNMTQ3Ljk1NCAxNy4wOTMzQzE0Ny45NTQgMTUuODUwNyAxNDcuNTYxIDE0Ljc1OTcgMTQ2Ljc3NCAxMy44MjAyQzE0Ni4wMTggMTIuODgwNiAxNDUuMDE5IDEyLjQxMDkgMTQzLjc3OSAxMi40MTA5QzE0Mi41NjggMTIuNDEwOSAxNDEuNTcgMTIuOTEwOSAxNDAuNzgzIDEzLjkxMTFDMTQwLjAyNyAxNC44ODA5IDEzOS42NDkgMTUuOTQxNiAxMzkuNjQ5IDE3LjA5MzNIMTQ3Ljk1NFonIGZpbGw9JyMyMTQwMzInLz4KPHBhdGggZD0nTTE1NC4xNSAyOC4wOTM4SDE2Ny41MjRWMzEuNDQyNkgxNTQuMTVWMjguMDkzOFonIGZpbGw9JyMyMTQwMzInLz4KPHBhdGggZD0nTTAgMjYuODcwMVYyMi41MzQyTDcuNTY4MjcgMTkuOTMyNlYxOS42MjQ5TDAgMTcuMDUxNFYxMi42ODc1SDAuNTg2NDcxTDExLjcwMTUgMTcuMjE5MlYyMi4zNjYzTDAuNTg2NDcxIDI2Ljg3MDFIMFonIGZpbGw9JyMyMTQwMzInLz4KPC9zdmc+Cg=="
-          />
-          <InPageNavigationGroup>
+    <LineBreak size="full" />
+    <Frame>
+      <GruopItems>
+        <StaticImage
+          src="../images/Pingwire_logo.svg"
+          alt="A dinosaur"
+          placeholder="tracedSVG"
+        />
+        <InPageNavigationGroup>
+          <Button as="a" href="#benefits">
             <Text>
               Benefits
             </Text>
+          </Button>
+          <Button as="a" href="#capabilities">
             <Text>
               Capabilities
             </Text>
+          </Button>
+          <Button as="a" href="#onboarding">
             <Text>
               Onboarding
             </Text>
+          </Button>
+          <Button as="a" href="#aboutUs">
             <Text>
               About us
             </Text>
-          </InPageNavigationGroup>
-          <LinkedInLogo
-            alt="akariconslinkedinv2fill2688197"
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTY4JyBoZWlnaHQ9JzM2JyB2aWV3Qm94PScwIDAgMTY4IDM2JyBmaWxsPSdub25lJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPgo8cGF0aCBmaWxsLXJ1bGU9J2V2ZW5vZGQnIGNsaXAtcnVsZT0nZXZlbm9kZCcgZD0nTTE0Ni4xNDMgMTMuNDUzNUgxNTEuNzE0VjE2LjIyODVDMTUyLjUxNyAxNC42MzI1IDE1NC41NzUgMTMuMTk4NSAxNTcuNjY3IDEzLjE5ODVDMTYzLjU5MyAxMy4xOTg1IDE2NSAxNi4zNzU1IDE2NSAyMi4yMDQ1VjMzSDE1OVYyMy41MzJDMTU5IDIwLjIxMjUgMTU4LjE5OCAxOC4zNDA1IDE1Ni4xNTUgMTguMzQwNUMxNTMuMzIxIDE4LjM0MDUgMTUyLjE0MyAyMC4zNTggMTUyLjE0MyAyMy41MzA1VjMzSDE0Ni4xNDNWMTMuNDUzNVYxMy40NTM1Wk0xMzUuODU1IDMyLjc0NUgxNDEuODU1VjEzLjE5ODVIMTM1Ljg1NVYzMi43NDVWMzIuNzQ1Wk0xNDIuNzE1IDYuODI1QzE0Mi43MTUgNy4zMjc5MSAxNDIuNjE1IDcuODI1ODUgMTQyLjQyMSA4LjI4OTg4QzE0Mi4yMjcgOC43NTM5MSAxNDEuOTQzIDkuMTc0NzcgMTQxLjU4NSA5LjUyOEMxNDAuODYgMTAuMjQ4OSAxMzkuODc4IDEwLjY1MjUgMTM4Ljg1NSAxMC42NUMxMzcuODM0IDEwLjY0OTMgMTM2Ljg1NCAxMC4yNDY4IDEzNi4xMjggOS41Mjk1QzEzNS43NzEgOS4xNzUwNyAxMzUuNDg4IDguNzUzNzQgMTM1LjI5NSA4LjI4OTY1QzEzNS4xMDEgNy44MjU1NiAxMzUuMDAxIDcuMzI3ODQgMTM1IDYuODI1QzEzNSA1LjgwOTUgMTM1LjQwNSA0LjgzNzUgMTM2LjEzIDQuMTIwNUMxMzYuODU1IDMuNDAyMjQgMTM3LjgzNSAyLjk5OTU1IDEzOC44NTcgM0MxMzkuODggMyAxNDAuODYgMy40MDM1IDE0MS41ODUgNC4xMjA1QzE0Mi4zMDggNC44Mzc1IDE0Mi43MTUgNS44MDk1IDE0Mi43MTUgNi44MjVaJyBmaWxsPScjMjE0MDMyJy8+Cjwvc3ZnPgo="
+          </Button>
+        </InPageNavigationGroup>
+        <Button>
+          <StaticImage
+            src="../images/linkedin.svg"
+            alt="A dinosaur"
+            placeholder="tracedSVG"
           />
-        </GruopItems>
-      </Frame>
-    </div>
+        </Button>
+      </GruopItems>
+    </Frame>
     <StyledCopyRightText>Copyright &copy;{(new Date()).getFullYear()} Pingwire</StyledCopyRightText>
   </StyledFooter>
 );
