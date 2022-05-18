@@ -1,9 +1,10 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import Page from '../components/Page';
 
 const Home = () => (
-  <Container>
+  <Page>
     <Desktop>
       <Frame572688090>
         <Image
@@ -1074,19 +1075,10 @@ const Home = () => (
         </Card2688827>
       </Group1902688823>
     </Desktop>
-  </Container>
+  </Page>
 );
 
 export default Home;
-
-const Container = styled('div')({
-  width: '100%',
-  display: 'flex',
-  overflow: 'auto',
-  'min-height': '100vh',
-  'align-items': 'center',
-  'flex-direction': 'column',
-});
 
 const Desktop = styled('div')({
   width: '1440px',

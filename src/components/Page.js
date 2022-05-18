@@ -9,13 +9,15 @@ const StyledPage = styled('div')`
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  align-items: center;
+  overflow: auto
 `;
 
 const GlobalStyle = createGlobalStyle`
   html, body {
     margin: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: Roboto Mono, monospace;
   }
 `;
 
