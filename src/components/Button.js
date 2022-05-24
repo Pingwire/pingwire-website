@@ -25,7 +25,7 @@ const StyledButton = styled('button')`
   text-decoration: none;
 `;
 
-const Text = styled('text')`
+const Text = styled('i')`
   color: ${(props) => {
     if (props.variant === 'filled') {
       if (props.textColor === 'primary') return 'rgba(33, 64, 50, 1)';

@@ -1,63 +1,95 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { StaticImage } from 'gatsby-plugin-image';
 import Button from './Button';
 
-const StyledHero = styled('div')`
-  min-height: 30rem;
-  background-image: url("./assets/images/hero.svg");
-  background-size: cover;
-  background-position: bottom right;
-  padding: 3rem 2rem;
-  display: flex;
-  flex-direction: column;
+const StyledHero = styled('div')({
+  display: 'flex',
+  position: 'relative',
+  'justify-content': 'center',
+});
 
-  @media (min-width: 768px) {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
+const StyledHeroContent = styled('div')({
+  display: 'flex',
+  position: 'absolute',
+  'box-sizing': 'border-box',
+  'align-items': 'flex-start',
+  'flex-shrink': 1,
+  'justify-content': 'center',
+});
 
-  @media (min-width: 1440px) {
-    padding-left: 20%;
-    padding-right: 20%;
-  }
-`;
+const StyledHeroHeader = styled('header')({
+  display: 'flex',
+  'flex-direction': 'column',
+  'box-sizing': 'border-box',
+  'flex-shrink': 1,
+  'align-items': 'center',
+});
 
-const StyledHeroContent = styled('div')`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-grow: 1;
-  max-width: 35rem;
-`;
+const StyledHeroHeadline = styled('h1')({
+  color: '#214032',
+  width: '986px',
+  'font-size': '48px',
+  'align-self': 'auto',
+  'font-style': 'normal',
+  'text-align': 'center',
+  'font-family': 'Roboto Mono',
+  'font-weight': 'initial',
+  'line-height': '70px',
+  'font-stretch': 'normal',
+});
 
-const StyledHeader = styled('header')`
-  height: 2rem;
-  padding: 1rem 0;
-  display: flex;
-`;
+const StyledHeroBody = styled('h2')({
+  color: '#201F1F',
+  width: '654px',
+  'font-size': '22px',
+  'font-style': 'normal',
+  'text-align': 'center',
+  'font-family': 'Inter',
+  'font-weight': 'initial',
+  'line-height': '178%',
+  'font-stretch': 'normal',
+});
 
-const StyledLogo = styled('img')`
-  height: 2rem;
-`;
-
-const StyledHeadline = styled('h1')`
-  margin-top: 0;
-  margin-bottom: 2rem;
-`;
+const StyledButtonCard = styled('div')({
+  margin: '10px',
+  width: '176px',
+  height: '74px',
+  display: 'flex',
+  position: 'relative',
+  'box-sizing': 'border-box',
+  'flex-shrink': 1,
+  'align-items': 'center',
+  'justify-content': 'center',
+  'background-color': 'rgba(211, 220, 218, 1)',
+  'border-radius': '5px',
+});
 
 const Hero = () => (
   <StyledHero>
-    <StyledHeader>
-      <StyledLogo src="./assets/images/logo.svg" alt="Pingwire" />
-    </StyledHeader>
+    <StaticImage
+      src="../images/randomNumbers.png"
+      alt="A dinosaur"
+      placeholder="blurred"
+      width={1440}
+      height={600}
+    />
     <StyledHeroContent>
-      <StyledHeadline>
-        Utilizing big data in an effective way to improve your AML &amp; CTF processes
-      </StyledHeadline>
-      <Button as="a" href="mailto:sales@pingwire.io">
-        Contact sales
-      </Button>
+      <StyledHeroHeader>
+        <StyledHeroHeadline>
+          The next generation solution to combat money-laundering and terrorism financing
+        </StyledHeroHeadline>
+        <StyledHeroBody>
+          Pingwire is a software service helping companies to be fully
+          compliant with their anti-money laundering and counter terrorist
+          financing standards.
+        </StyledHeroBody>
+        <StyledButtonCard>
+          <Button as="a" href="mailto:sales@pingwire.io" variant="filled" size="big">
+            Book demo
+          </Button>
+        </StyledButtonCard>
+      </StyledHeroHeader>
     </StyledHeroContent>
   </StyledHero>
 );
