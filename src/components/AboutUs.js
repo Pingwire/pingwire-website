@@ -2,6 +2,7 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import breakpoints from '../../contants/breakpoints';
 
 const Container = styled('div')`
   width: 80%;
@@ -10,7 +11,9 @@ const Container = styled('div')`
   justify-content: space-between;
   align-self: center;
   align-items: center;
-  margin-top: 10%
+  margin-top: 10%;
+  flex-wrap: wrap-reverse;
+
 `;
 
 const StyledCard = styled('div')`
@@ -20,6 +23,12 @@ const StyledCard = styled('div')`
   flex-shrink: 1;
   border-color: transparent;
   flex-direction: column;
+  flex-wrap: wrap;
+  padding-top: 5%;
+  @media (min-width: ${breakpoints.desktop}) {
+    width: 50%;
+    padding-top: 0%;
+  }
 `;
 
 const StyledHeader = styled('div')`
@@ -49,7 +58,6 @@ const StyledTitle = styled('h1')`
 
 const StyledContentText = styled('p')`
   color: rgba(42, 42, 42, 1);
-  width: 488px;
   margin: 0px;
   font-size: 18px;
   font-family: Inter;

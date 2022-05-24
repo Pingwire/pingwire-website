@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { StaticImage } from 'gatsby-plugin-image';
+import breakpoints from '../../contants/breakpoints';
 
 const Container = styled('div')`
   width: 100%;
@@ -10,33 +11,43 @@ const Container = styled('div')`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10%
+  margin-top: 10%;
+  flex-wrap: wrap;
 `;
 
 const StyledTitle = styled('h1')`
   color: rgba(33, 64, 50, 1);
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
   font-family: Roboto Mono;
   font-weight: inherit;
+  @media (min-width: ${breakpoints.tablet}) {
+    font-size: 24px;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    font-size: 40px;
+  }
 `;
 
 const StyledSubTitle = styled('h2')`
   width: 65%;
-  font-size: 40px;
   text-align: center;
   font-family: Roboto Mono;
   font-weight: inherit;
+  font-size: 26px;
   margin: 0;
+  @media (min-width: ${breakpoints.desktop}) {
+    font-size: 40px;
+  }
 `;
 
 const StyleCardRowContainer = styled('div')`
-  width: 80%;
   display: flex;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 1;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
 const StyleCardColumnContainer = styled('div')`
@@ -45,11 +56,11 @@ const StyleCardColumnContainer = styled('div')`
   align-items: flex-start;
   flex-shrink: 1;
   justify-content: space-between;
-  flex-direaction: column;
+  flex-direction: column;
+  margin: 30px;
 `;
 
 const Card = styled('div')`
-  width: 100%;
   display: flex;
   padding: 48px 32px;
   box-sizing: border-box;
@@ -69,26 +80,27 @@ const CardHeader = styled('div')`
   width: 100%;
   margin: 0 0 40px 0;
   display: flex;
-  position: relative;
   box-sizing: border-box;
-  align-items: flex-start;
+  align-items: center;
   border-color: transparent;
   justify-content: space-between;
 `;
 
 const CardTitle = styled('h1')`
   color: rgba(255, 255, 255, 1);
-  width: 362px;
+  max-width: 362px;
+  width: 100%;
   font-size: 24px;
   text-align: left;
   font-family: Roboto Mono;
   font-weight: 700px;
   line-height: 42px;
+  margin: 2px;
 `;
 
 const CardContent = styled('h2')`
   color: #FFFFFF;
-  width: 468px;
+  max-width: 468px;
   opacity: 0.90;
   font-size: 18px;
   text-align: left;

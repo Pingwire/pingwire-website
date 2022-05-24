@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 import Button from './Button';
+import breakpoints from '../../contants/breakpoints';
 
 const StyledCard = styled('div')`
-  width: 80%;
-  height: 8%;
+  width: 100%;
   display: flex;
   margin-top: 10%;
   flex-direction: column;
@@ -13,11 +13,19 @@ const StyledCard = styled('div')`
   flex-shrink: 1;
   align-self: center;
   background-color: rgba(33, 64, 50, 1);
+  padding: 5%;
+  margin-bottom: 10%;
+  @media (min-width: ${breakpoints.tablet}) {
+    width: 80%;
+    padding: 0% 10% 10% 10%;
+    
+  }
 `;
 
 const StyledHeader = styled('div')`
   width: 100%;
   margin: 2%;
+  padding-bottom: 2%;
 `;
 
 const StyledCardContent = styled('div')`
@@ -42,7 +50,6 @@ const StyledTitle = styled('h1')`
 
 const StyledSubTitle = styled('h2')`
   color: rgba(255, 255, 255, 1);
-  width: 936px;
   font-size: 32px;
   text-align: center;
   font-family: Roboto Mono;
@@ -52,11 +59,11 @@ const StyledSubTitle = styled('h2')`
 const StyledText = styled('p')`
   color: rgba(255, 255, 255, 1);
   margin: 0;
-  width: 744px;
   font-size: 18px;
   text-align: center;
   font-family: Inter;
   line-height: 180%;
+  padding-bottom: 5%
 `;
 
 const Contact = () => (

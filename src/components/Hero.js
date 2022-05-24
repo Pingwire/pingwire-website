@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 import Button from './Button';
+import breakpoints from '../../contants/breakpoints';
 
 const StyledHero = styled('div')({
   display: 'flex',
-  position: 'relative',
   'justify-content': 'center',
+  position: 'relative',
+  height: 'fit-content',
 });
 
 const StyledHeroContent = styled('div')({
@@ -16,6 +18,7 @@ const StyledHeroContent = styled('div')({
   'align-items': 'flex-start',
   'flex-shrink': 1,
   'justify-content': 'center',
+  height: '100%',
 });
 
 const StyledHeroHeader = styled('header')({
@@ -26,22 +29,26 @@ const StyledHeroHeader = styled('header')({
   'align-items': 'center',
 });
 
-const StyledHeroHeadline = styled('h1')({
-  color: '#214032',
-  width: '986px',
-  'font-size': '48px',
-  'align-self': 'auto',
-  'font-style': 'normal',
-  'text-align': 'center',
-  'font-family': 'Roboto Mono',
-  'font-weight': 'initial',
-  'line-height': '70px',
-  'font-stretch': 'normal',
-});
+const StyledHeroHeadline = styled('h1')`
+  color: #214032;
+  width: 65%;
+  font-size: 28px;
+  align-self: auto;
+  font-style: normal;
+  text-align: center;
+  font-family: Roboto Mono;
+  font-weight: initial;
+  line-height: 37px;
+  font-stretch: normal;
+  @media (min-width: ${breakpoints.desktop}) {
+    font-size: 48px;
+    line-height: 70px;
+  }
+  `;
 
 const StyledHeroBody = styled('h2')({
   color: '#201F1F',
-  width: '654px',
+  width: '50%',
   'font-size': '22px',
   'font-style': 'normal',
   'text-align': 'center',
@@ -56,7 +63,6 @@ const StyledButtonCard = styled('div')({
   width: '176px',
   height: '74px',
   display: 'flex',
-  position: 'relative',
   'box-sizing': 'border-box',
   'flex-shrink': 1,
   'align-items': 'center',
@@ -73,6 +79,7 @@ const Hero = () => (
       placeholder="blurred"
       width={1440}
       height={600}
+      layout="constrained"
     />
     <StyledHeroContent>
       <StyledHeroHeader>
