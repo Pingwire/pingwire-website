@@ -14,13 +14,18 @@ const BenefitsRow = styled('div')`
   flex-shrink: 1;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  margin: 3rem;
+
   @media (min-width: ${breakpoints.laptop}) {
     max-width: 70rem;
     justify-content: space-between;
     flex-direction: row;
     align-items: stretch;
   }
-  flex-wrap: wrap;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    margin: 3rem 0 6rem;
+  }
 `;
 
 const BenefitColumn = styled('div')`
@@ -106,10 +111,17 @@ const StyledContainer = styled('div')`
   align-items: center;
   flex-shrink: 1;
   flex-direction: column;
-  padding: 1rem 1rem;
+  padding: 2rem 1rem;
   justify-content: space-between;
+
   @media (min-width: ${breakpoints.tablet}) {
     padding: 3rem 2rem;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    padding: 4rem 4rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    padding: 6rem 9rem;
   }
 `;
 
@@ -141,6 +153,10 @@ const StyledBenefitCard = styled('div')`
     .gatsby-image-wrapper {
       width: 50%;
     }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 `;
 
@@ -206,14 +222,12 @@ const StyledCardContent = styled('h3')({
   'line-height': '178%',
 });
 
-const BenefitCardsContainer = styled('div')({
-  display: 'flex',
-  flexDirection: 'column',
-  marginTop: '3rem',
-  justifyContent: 'space-between',
-  width: '100%',
-  height: '100%',
-});
+const BenefitCardsContainer = styled('div')`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+`;
 
 const Benefits = ({ id }) => (
   <StyledContainer>
