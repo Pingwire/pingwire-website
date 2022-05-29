@@ -4,34 +4,33 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Button from './Button';
 import breakpoints from '../../contants/breakpoints';
 
-const StyledHero = styled('div')({
-  display: 'flex',
-  'justify-content': 'center',
-  position: 'relative',
-  height: 'fit-content',
-});
+const StyledHero = styled('header')`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: calc(100% - 2rem);
+  padding: 2rem 1rem;
+`;
 
-const StyledHeroContent = styled('div')({
-  display: 'flex',
-  position: 'absolute',
-  'box-sizing': 'border-box',
-  'align-items': 'flex-start',
-  'flex-shrink': 1,
-  'justify-content': 'center',
-  height: '100%',
-});
+const StyledHeroContent = styled('div')`
+  display: flex;
+  box-sizing: border-box;
+  align-items: flex-start;
+  flex-shrink: 1;
+  justify-content: center;
+`;
 
-const StyledHeroHeader = styled('header')({
-  display: 'flex',
-  'flex-direction': 'column',
-  'box-sizing': 'border-box',
-  'flex-shrink': 1,
-  'align-items': 'center',
-});
+const StyledHeroHeader = styled('div')`
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  flex-shrink: 1;
+  align-items: center;
+`;
 
 const StyledHeroHeadline = styled('h1')`
   color: #214032;
-  width: 65%;
+  max-width: 50rem;
   font-size: 28px;
   align-self: auto;
   font-style: normal;
@@ -40,36 +39,47 @@ const StyledHeroHeadline = styled('h1')`
   font-weight: initial;
   line-height: 37px;
   font-stretch: normal;
-  @media (min-width: ${breakpoints.desktop}) {
+  margin-top: 0;
+  @media (min-width: ${breakpoints.laptop}) {
+    max-width: 60rem;
     font-size: 48px;
     line-height: 70px;
   }
   `;
 
-const StyledHeroBody = styled('h2')({
-  color: '#201F1F',
-  width: '50%',
-  'font-size': '22px',
-  'font-style': 'normal',
-  'text-align': 'center',
-  'font-family': 'Inter',
-  'font-weight': 'initial',
-  'line-height': '178%',
-  'font-stretch': 'normal',
-});
+const StyledHeroBody = styled('h2')`
+  color: #201F1F;
+  max-width: 40rem;
+  font-size: 22px;
+  font-style: normal;
+  text-align: center;
+  font-family: Inter;
+  font-weight: initial;
+  line-height: 178%;
+  font-stretch: normal;
+`;
 
-const StyledButtonCard = styled('div')({
-  margin: '10px',
-  width: '176px',
-  height: '74px',
-  display: 'flex',
-  'box-sizing': 'border-box',
-  'flex-shrink': 1,
-  'align-items': 'center',
-  'justify-content': 'center',
-  'background-color': 'rgba(211, 220, 218, 1)',
-  'border-radius': '5px',
-});
+const StyledButtonCard = styled('div')`
+  margin: 10px;
+  width: 176px;
+  height: 74px;
+  display: flex;
+  box-sizing: border-box;
+  flex-shrink: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(211, 220, 218, 1);
+  border-radius: 5px;
+`;
+
+const backgroundStyle = {
+  position: 'absolute',
+  zIndex: -1,
+  bottom: 0,
+  top: 0,
+  left: 0,
+  right: 0,
+};
 
 const Hero = () => (
   <StyledHero>
@@ -80,6 +90,7 @@ const Hero = () => (
       width={1440}
       height={600}
       layout="constrained"
+      style={backgroundStyle}
     />
     <StyledHeroContent>
       <StyledHeroHeader>

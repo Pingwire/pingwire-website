@@ -12,7 +12,6 @@ const Container = styled('div')`
 
 const StyledPage = styled('div')`
   display: flex;
-  min-height: 7240px;
   max-width: 1440px;
   flex-direction: column;
   align-items: center;
