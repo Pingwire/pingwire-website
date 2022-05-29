@@ -5,39 +5,53 @@ import { StaticImage } from 'gatsby-plugin-image';
 import breakpoints from '../../contants/breakpoints';
 
 const Container = styled('div')`
-  width: 100%;
-  height: 14%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10%;
   flex-wrap: wrap;
+
+  padding: 2rem 1rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    padding: 3rem 2rem;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    padding: 4rem 2rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    padding: 6rem 2rem;
+  }
 `;
 
 const StyledTitle = styled('h1')`
   color: rgba(33, 64, 50, 1);
+  margin-top: 0;
   font-size: 18px;
   text-align: center;
   font-family: Roboto Mono;
   font-weight: inherit;
+
   @media (min-width: ${breakpoints.tablet}) {
     font-size: 24px;
-  }
-  @media (min-width: ${breakpoints.desktop}) {
-    font-size: 40px;
   }
 `;
 
 const StyledSubTitle = styled('h2')`
-  width: 65%;
+  max-width: 60rem;
   text-align: center;
   font-family: Roboto Mono;
   font-weight: inherit;
   font-size: 26px;
-  margin: 0;
+  margin: 2rem 0;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    margin: 4rem 0;
+  }
+
   @media (min-width: ${breakpoints.desktop}) {
     font-size: 40px;
+    margin: 6rem 0;
   }
 `;
 
@@ -48,6 +62,11 @@ const StyleCardRowContainer = styled('div')`
   flex-shrink: 1;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 2rem;
+
+  @media (min-width: ${breakpoints.desktop}) {
+    gap: 4rem;
+  }
 `;
 
 const StyleCardColumnContainer = styled('div')`
@@ -57,12 +76,11 @@ const StyleCardColumnContainer = styled('div')`
   flex-shrink: 1;
   justify-content: space-between;
   flex-direction: column;
-  margin: 30px;
 `;
 
 const Card = styled('div')`
   display: flex;
-  padding: 48px 32px;
+  padding: 3rem 2rem;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 1;
@@ -111,8 +129,8 @@ const CardContent = styled('h2')`
 `;
 
 const Capabilities = ({ id }) => (
-  <Container>
-    <StyledTitle id={id}>[Pingwire’s capabilities]</StyledTitle>
+  <Container id={id}>
+    <StyledTitle>[Pingwire’s capabilities]</StyledTitle>
     <StyledSubTitle>Pingwire’s case handling capabilities in a snapshot</StyledSubTitle>
     <StyleCardRowContainer>
       <StyleCardColumnContainer>
@@ -147,8 +165,6 @@ const Capabilities = ({ id }) => (
           </CardContent>
         </Card>
       </StyleCardColumnContainer>
-    </StyleCardRowContainer>
-    <StyleCardRowContainer>
       <StyleCardColumnContainer>
         <Card color="yellow">
           <CardHeader>
