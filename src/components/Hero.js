@@ -4,7 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Button from './Button';
 import breakpoints from '../../contants/breakpoints';
 
-const StyledHero = styled('header')`
+const StyledHero = styled('div')`
   display: flex;
   justify-content: center;
   position: relative;

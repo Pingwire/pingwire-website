@@ -4,16 +4,23 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Button from './Button';
 import breakpoints from '../../contants/breakpoints';
 
-const Frame = styled('div')`
+const Frame = styled('header')`
   width: 100%;
+  box-sizing: border-box;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    padding: 1.5rem 2rem;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    padding: 1.5rem 4rem;
+  }
   @media (min-width: ${breakpoints.desktop}) {
     padding: 1.5rem 9.75rem;
   }
-  padding: 1.5rem 5%;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: space-between;
 `;
 
 const ButtonGroup = styled('div')`

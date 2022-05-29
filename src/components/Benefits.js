@@ -228,8 +228,8 @@ const BenefitCardsContainer = styled('div')`
 `;
 
 const Benefits = ({ id }) => (
-  <StyledContainer>
-    <StyledHeader id={id}>[Pingwire’s Benefits]</StyledHeader>
+  <StyledContainer id={id}>
+    <StyledHeader>[Pingwire’s Benefits]</StyledHeader>
     <BenefitsRow>
       <BenefitColumn>
         <BenefitColumnContent>

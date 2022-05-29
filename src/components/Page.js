@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Helmet } from 'react-helmet';
-
+import LineBreak from './LineBreak';
 import Footer from './Footer';
 
 const Container = styled('div')`
@@ -40,6 +40,7 @@ const Page = ({ children }) => (
       </Helmet>
       <GlobalStyle />
       {children}
+      <LineBreak size="full" />
       <Footer />
     </StyledPage>
   </Container>

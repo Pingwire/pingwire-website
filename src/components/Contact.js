@@ -14,7 +14,7 @@ const StyledCard = styled('div')`
   position: relative;
 
   margin: 0;
-  padding: 5rem 1rem 1rem;
+  padding: 5rem 1rem 2rem;
 
   @media (min-width: ${breakpoints.tablet}) {
     margin: 3rem 2rem;
