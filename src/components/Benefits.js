@@ -2,7 +2,6 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import LineBreak from './LineBreak';
 import breakpoints from '../../contants/breakpoints';
 
 const BenefitsRow = styled('div')`
@@ -34,11 +33,11 @@ const BenefitColumn = styled('div')`
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 1;
-  border-top: 1px solid rgba(33, 64, 50, 0.25);
+  border-top: 1px solid rgba(33, 64, 50, 0.1);
   @media (min-width: ${breakpoints.laptop}) {
     align-items: flex-start;
-    width: 30%;
-    border-bottom: 1px solid rgba(33, 64, 50, 0.25);
+    width: 27%;
+    border-bottom: 1px solid rgba(33, 64, 50, 0.1);
   }
 `;
 
@@ -332,7 +331,6 @@ const Benefits = ({ id }) => (
           </StyledCardContent>
         </StyledCard>
       </StyledBenefitCard>
-      <LineBreak size="full" />
     </BenefitCardsContainer>
   </StyledContainer>
 );

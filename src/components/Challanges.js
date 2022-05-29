@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import LineBreak from './LineBreak';
 import Button from './Button';
 import breakpoints from '../../contants/breakpoints';
 import useMediaQuery from '../hooks/useMediaQuery';
@@ -12,9 +11,16 @@ const Container = styled('div')`
   flex-shrink: 1;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 15% 2% 15% 2%;
+  padding: 2rem 1rem;
+
   @media (min-width: ${breakpoints.tablet}) {
-    padding: 80px 156px;
+    padding: 3rem 2rem;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    padding: 4rem 4rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    padding: 6rem 9rem;
   }
 `;
 
@@ -28,20 +34,23 @@ const StyledCard = styled('div')`
   border-color: transparent;
   background-color: rgba(230, 235, 234, 1);
   flex-wrap: wrap;
-  @media (min-width: ${breakpoints.desktop}) {
+
+  @media (min-width: ${breakpoints.laptop}) {
     justify-content: start ;
   }
 `;
 
 const StyledCardContainer = styled('div')`
-  margin: 0 1% 0 0;
-  width: 80%;
   display: flex;
   position: relative;
   box-sizing: border-box;
   align-items: center;
   flex-shrink: 1;
   flex-wrap: wrap;
+
+  @media (min-width: ${breakpoints.laptop}) {
+    width: 80%;
+  }
 `;
 
 const StyledCardTextContainer = styled('div')`
@@ -60,7 +69,8 @@ const StyledCardTitle = styled('h2')`
   text-align: center;
   font-family: Roboto Mono;
   font-weight: inherit;
-  @media (min-width: ${breakpoints.desktop}) {
+
+  @media (min-width: ${breakpoints.laptop}) {
     text-align: left;
   }
 `;
@@ -74,8 +84,9 @@ const StyledCardContentText = styled('p')`
   font-family: Inter;
   font-weight: 400px;
   line-height: 178%;
-  @media (min-width: ${breakpoints.desktop}) {
+  @media (min-width: ${breakpoints.laptop}) {
     text-align: left;
+  }
 `;
 
 const StyledChallengesContainer = styled('div')`
@@ -83,11 +94,21 @@ const StyledChallengesContainer = styled('div')`
   align-items: center;
   flex-shrink: 1;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
-  padding-bottom: 5%;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  @media (min-width: ${breakpoints.laptop}) {
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: ${breakpoints.laptop}) {
+    margin-bottom: 4rem;
+  }
+
   @media (min-width: ${breakpoints.desktop}) {
-    justify-content: space-between;
+    margin-bottom: 6rem;
   }
 `;
 
@@ -102,11 +123,10 @@ const StyledCircle = styled('span')`
 
 const ChallengesListContainer = styled('div')`
   border-left: 4px solid #DFA639;
-  height: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin: 1%
+  margin: 0.5rem;
 `;
 
 const ChallengesListItemContainer = styled('div')`
@@ -116,7 +136,7 @@ const ChallengesListItemContainer = styled('div')`
     if (props.position === 'bottom') return 'end';
     return 'center';
   }};
-  height: 100%;
+
   @media (min-width: ${breakpoints.tablet}) {
     height: 50px;
   }
@@ -133,25 +153,23 @@ const ChallengesListItemTitle = styled('h3')`
 
 const StyledTitle = styled('h1')`
   color: #201F1F;
-  margin: 0  0 5% 0;
+  margin: 0;
   font-size: 26px;
   font-family: Roboto Mono;
   font-weight: inherit;
   text-align: left;
-  @media (min-width: ${breakpoints.desktop}) {
+
+  @media (min-width: ${breakpoints.laptop}) {
     width: 40%;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
     font-size: 40px;
-    margin: 0;
   }
 `;
 
 const ButtonContainer = styled('div')`
   padding: 20px;
-`;
-
-const LineContainer = styled('div')`
-  padding-top: 10%;
-  width: 100%;
 `;
 
 const Challenges = () => {
@@ -194,9 +212,6 @@ const Challenges = () => {
           </Button>
         </ButtonContainer>
       </StyledCard>
-      <LineContainer>
-        <LineBreak size="full" />
-      </LineContainer>
     </Container>
 
   );

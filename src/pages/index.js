@@ -9,13 +9,16 @@ import Capabilities from '../components/Capabilities';
 import Onboarding from '../components/Onboarding';
 import AboutUs from '../components/AboutUs';
 import Contact from '../components/Contact';
+import LineBreak from '../components/LineBreak';
 
 const Home = () => (
   <Page>
     <MenuBar />
     <Hero />
     <Benefits id="benefits" />
+    <LineBreak size="full" />
     <Challenges />
+    <LineBreak size="full" />
     <Capabilities id="capabilities" />
     <Onboarding id="onboarding" />
     <AboutUs id="aboutUs" />
