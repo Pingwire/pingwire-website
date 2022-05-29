@@ -8,9 +8,9 @@ const Frame = styled('div')`
   width: 100%;
   display: flex;
   @media (min-width: ${breakpoints.desktop}) {
-    padding: 1% 10%;
+    padding: 1.5rem 9.75rem;
   }
-  padding: 1% 5%;
+  padding: 1.5rem 5%;
   box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
@@ -37,9 +37,9 @@ const DrawerContainer = styled('div')`
 `;
 
 const SideBarContainer = styled('div')`
-  width: 375px;
+  width: 100%;
   align-items: end;
-  display: flex; 
+  display: flex;
   flex-direction: column;
 `;
 
@@ -51,6 +51,7 @@ const SideBarHeader = styled('div')`
 `;
 
 const SideBar = styled('div')`
+  max-width: 375px;
   height: 100%;
   width: 0;
   position: fixed;
@@ -67,7 +68,7 @@ const SideBar = styled('div')`
 const SideBarFooter = styled('div')`
   width: 90%;
   justify-content: space-between;
-  display: flex; 
+  display: flex;
   margin: 20% 5% 0px 0px;
 `;
 
@@ -83,7 +84,7 @@ const Text = styled('p')`
 const MenuBar = () => {
   const sideBarRef = useRef(null);
   const openNav = () => {
-    sideBarRef.current.style.width = 'fit-content';
+    sideBarRef.current.style.width = '100%';
   };
   const closeNav = () => {
     sideBarRef.current.style.width = '0';

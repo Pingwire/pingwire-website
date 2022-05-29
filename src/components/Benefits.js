@@ -4,25 +4,21 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import LineBreak from './LineBreak';
 import breakpoints from '../../contants/breakpoints';
-import useMediaQuery from '../hooks/useMediaQuery';
 
 const BenefitsRow = styled('div')`
-  margin-top: 10%;
   display: flex;
   width: 100%;
+  max-width: 30rem;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 1;
   justify-content: space-evenly;
-  @media (min-width: ${breakpoints.tablet}) {
-    flex-direction: column;
-    align-items: center;
-  }
   flex-wrap: wrap;
-  @media (min-width: ${breakpoints.desktop}) {
+  @media (min-width: ${breakpoints.laptop}) {
+    max-width: 70rem;
     justify-content: space-between;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
   }
   flex-wrap: wrap;
 `;
@@ -33,10 +29,11 @@ const BenefitColumn = styled('div')`
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 1;
-  border-color: transparent;
-  @media (min-width: ${breakpoints.desktop}) {
+  border-top: 1px solid rgba(33, 64, 50, 0.25);
+  @media (min-width: ${breakpoints.laptop}) {
     align-items: flex-start;
     width: 30%;
+    border-bottom: 1px solid rgba(33, 64, 50, 0.25);
   }
 `;
 
@@ -44,17 +41,14 @@ const BenefitColumnContent = styled('div')`
   padding-top: 25px;
   padding-bottom: 25px;
   width: 100%;
-  height: 300px;
   display: flex;
   box-sizing: border-box;
   align-items: center;
   flex-shrink: 1;
   flex-direction: column;
   flex-wrap: wrap;
-  @media (min-width: ${breakpoints.desktop}) {
+  @media (min-width: ${breakpoints.laptop}) {
     align-items: flex-start;
-    width: 80%;
-    height: 350px;
   }
 `;
 
@@ -73,7 +67,7 @@ const StyledBenefitColumnTitleSign = styled('h2')`
   @media (min-width: ${breakpoints.tablet}) {
     font-size: 18px;
   }
-  @media (min-width: ${breakpoints.desktop}) {
+  @media (min-width: ${breakpoints.laptop}) {
     font-size: 20px;
   }
 
@@ -88,12 +82,13 @@ const StyledBenefitColumnTitleText = styled('h2')`
   @media (min-width: ${breakpoints.tablet}) {
     font-size: 18px;
   }
-  @media (min-width: ${breakpoints.desktop}) {
+  @media (min-width: ${breakpoints.laptop}) {
     font-size: 20px;
   }
 `;
 
 const StyledBenefitColumnBodyText = styled('p')`
+  margin: 0;
   color: rgba(32, 31, 31, 1);
   width: 100%;
   font-size: 16px;
@@ -101,7 +96,7 @@ const StyledBenefitColumnBodyText = styled('p')`
   font-family: Inter;
   font-weight: 400px;
   line-height: 178%;
-  @media (min-width: ${breakpoints.desktop}) {
+  @media (min-width: ${breakpoints.laptop}) {
     text-align: left;
   }
 `;
@@ -111,33 +106,41 @@ const StyledContainer = styled('div')`
   align-items: center;
   flex-shrink: 1;
   flex-direction: column;
-  padding: 1% 2%;
+  padding: 1rem 1rem;
   justify-content: space-between;
   @media (min-width: ${breakpoints.tablet}) {
-    padding: 80px 156px;
+    padding: 3rem 2rem;
   }
 `;
 
-const StyledHeader = styled('h1')({
-  color: 'rgba(33, 64, 50, 1)',
-  'font-size': '24px',
-  'text-align': 'center',
-  'font-family': 'Roboto Mono',
-  'font-weight': 'initial',
-});
+const StyledHeader = styled('h1')`
+  color: rgba(33, 64, 50, 1);
+  font-size: 24px;
+  text-align: center;
+  font-family: "Roboto Mono";
+  font-weight: initial;
+  margin-top: 0;
+  margin-bottom: 2rem;
+`;
 
 const StyledBenefitCard = styled('div')`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   box-sizing: border-box;
   align-items: center;
   flex-shrink: 1;
   border-color: transparent;
-  flex-wrap: wrap;
-  margin: 0 0 20% 0;
-  @media (min-width: ${breakpoints.desktop}) {
-    margin: 0 0 5% 0;
+  flex-wrap: ${(props) => (props.$reverse ? 'wrap-reverse' : 'wrap')};
+  margin-bottom: 3rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    .gatsby-image-wrapper {
+      width: 50%;
+    }
   }
 `;
 
@@ -148,10 +151,12 @@ const StyledCard = styled('div')`
   flex-shrink: 1;
   border-color: transparent;
   flex-direction: column;
-  width: 100%;
-  @media (min-width: ${breakpoints.desktop}) {
+  max-width: 35.5rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
     width: 45%;
     margin: 0;
+    max-width: none;
   }
 `;
 
@@ -204,132 +209,119 @@ const StyledCardContent = styled('h3')({
 const BenefitCardsContainer = styled('div')({
   display: 'flex',
   flexDirection: 'column',
-  marginTop: '10%',
+  marginTop: '3rem',
   justifyContent: 'space-between',
   width: '100%',
   height: '100%',
 });
 
-const Benefits = ({ id }) => {
-  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.desktop})`);
-  return (
-    <StyledContainer>
-      <StyledHeader id={id}>[Pingwire’s Benefits]</StyledHeader>
-      <BenefitsRow>
-        {!isDesktop && <LineBreak size="full" />}
-        <BenefitColumn>
-          {isDesktop && <LineBreak size="small" />}
-          <BenefitColumnContent>
-            <StyledBenefitColumnTitleContainer>
-              <StyledBenefitColumnTitleSign>&gt;</StyledBenefitColumnTitleSign>
-              <StyledBenefitColumnTitleText>EFFICIENT HANDLING_</StyledBenefitColumnTitleText>
-            </StyledBenefitColumnTitleContainer>
-            <StyledBenefitColumnBodyText>
-              An intuitive case handling system supported by world class
-              machine learning algorithms will ensure efficient handling
-              of your compliance standards.
-            </StyledBenefitColumnBodyText>
-          </BenefitColumnContent>
-          {isDesktop && <LineBreak size="small" />}
-        </BenefitColumn>
-        {!isDesktop && <LineBreak size="full" />}
-        <BenefitColumn>
-          {isDesktop && <LineBreak size="small" />}
-          <BenefitColumnContent>
-            <StyledBenefitColumnTitleContainer>
-              <StyledBenefitColumnTitleSign>&gt;</StyledBenefitColumnTitleSign>
-              <StyledBenefitColumnTitleText>ONE CONNECTION_</StyledBenefitColumnTitleText>
-            </StyledBenefitColumnTitleContainer>
-            <StyledBenefitColumnBodyText>
-              You don’t want to spend time on data mapping. We have done the
-              job for you. Get all the information you need by only one
-              connection.
-            </StyledBenefitColumnBodyText>
-          </BenefitColumnContent>
-          {isDesktop && <LineBreak size="small" />}
-        </BenefitColumn>
-        {!isDesktop && <LineBreak size="full" />}
-        <BenefitColumn>
-          {isDesktop && <LineBreak size="small" />}
-          <BenefitColumnContent>
-            <StyledBenefitColumnTitleContainer>
-              <StyledBenefitColumnTitleSign>&gt;</StyledBenefitColumnTitleSign>
-              <StyledBenefitColumnTitleText>RISK BASED APPROACH_</StyledBenefitColumnTitleText>
-            </StyledBenefitColumnTitleContainer>
-            <StyledBenefitColumnBodyText>
-              The dynamic risk score is at heart of the solution so you
-              spend your resources on what really matters.
-            </StyledBenefitColumnBodyText>
-          </BenefitColumnContent>
-          {isDesktop && <LineBreak size="small" />}
-        </BenefitColumn>
-        {!isDesktop && <LineBreak size="full" />}
-      </BenefitsRow>
-      <BenefitCardsContainer>
-        <StyledBenefitCard>
-          <StaticImage
-            src="../images/transaction.png"
-            alt="A dinosaur"
-            placeholder="blurred"
-            width="568"
-            height="400"
-          />
-          <StyledCard>
-            <StyledCardHeader>
-              <StyledCardCategory>[Benefit]</StyledCardCategory>
-              <StyledCardTitle>Real time transaction monitoring</StyledCardTitle>
-            </StyledCardHeader>
-            <StyledCardContent>
-              Pingwire helps you to react before it’s too late. Evaluate all
-              your transactions and take decision in real time based on your
-              risk assessment.
-            </StyledCardContent>
-          </StyledCard>
-        </StyledBenefitCard>
-        <StyledBenefitCard style={{ 'flex-wrap': 'wrap-reverse' }}>
-          <StyledCard>
-            <StyledCardHeader>
-              <StyledCardCategory>[Benefit]</StyledCardCategory>
-              <StyledCardTitle>Know-your-customer</StyledCardTitle>
-            </StyledCardHeader>
-            <StyledCardContent>
-              The KYC process should work seamlessly to not interfere with the
-              customer experience. Pingwire is built with this in mind.
-            </StyledCardContent>
-          </StyledCard>
-          <StaticImage
-            src="../images/kyc.png"
-            alt="A dinosaur"
-            placeholder="blurred"
-            width="568"
-            height="400"
-          />
-        </StyledBenefitCard>
-        <StyledBenefitCard>
-          <StaticImage
-            src="../images/compliance.png"
-            alt="A dinosaur"
-            placeholder="blurred"
-            width="568"
-            height="400"
-          />
-          <StyledCard>
-            <StyledCardHeader>
-              <StyledCardCategory>[Benefit]</StyledCardCategory>
-              <StyledCardTitle>Compliance reporting</StyledCardTitle>
-            </StyledCardHeader>
-            <StyledCardContent>
-              As you have everything in the same solution, reporting is made
-              with ease. Often you have to assemble information from several
-              sources, now you will have access to everything in one solution.
-            </StyledCardContent>
-          </StyledCard>
-        </StyledBenefitCard>
-        <LineBreak size="full" />
-      </BenefitCardsContainer>
-    </StyledContainer>
-  );
-};
+const Benefits = ({ id }) => (
+  <StyledContainer>
+    <StyledHeader id={id}>[Pingwire’s Benefits]</StyledHeader>
+    <BenefitsRow>
+      <BenefitColumn>
+        <BenefitColumnContent>
+          <StyledBenefitColumnTitleContainer>
+            <StyledBenefitColumnTitleSign>&gt;</StyledBenefitColumnTitleSign>
+            <StyledBenefitColumnTitleText>EFFICIENT HANDLING_</StyledBenefitColumnTitleText>
+          </StyledBenefitColumnTitleContainer>
+          <StyledBenefitColumnBodyText>
+            An intuitive case handling system supported by world class
+            machine learning algorithms will ensure efficient handling
+            of your compliance standards.
+          </StyledBenefitColumnBodyText>
+        </BenefitColumnContent>
+      </BenefitColumn>
+      <BenefitColumn>
+        <BenefitColumnContent>
+          <StyledBenefitColumnTitleContainer>
+            <StyledBenefitColumnTitleSign>&gt;</StyledBenefitColumnTitleSign>
+            <StyledBenefitColumnTitleText>ONE CONNECTION_</StyledBenefitColumnTitleText>
+          </StyledBenefitColumnTitleContainer>
+          <StyledBenefitColumnBodyText>
+            You don’t want to spend time on data mapping. We have done the
+            job for you. Get all the information you need by only one
+            connection.
+          </StyledBenefitColumnBodyText>
+        </BenefitColumnContent>
+      </BenefitColumn>
+      <BenefitColumn>
+        <BenefitColumnContent>
+          <StyledBenefitColumnTitleContainer>
+            <StyledBenefitColumnTitleSign>&gt;</StyledBenefitColumnTitleSign>
+            <StyledBenefitColumnTitleText>RISK BASED APPROACH_</StyledBenefitColumnTitleText>
+          </StyledBenefitColumnTitleContainer>
+          <StyledBenefitColumnBodyText>
+            The dynamic risk score is at heart of the solution so you
+            spend your resources on what really matters.
+          </StyledBenefitColumnBodyText>
+        </BenefitColumnContent>
+      </BenefitColumn>
+    </BenefitsRow>
+    <BenefitCardsContainer>
+      <StyledBenefitCard>
+        <StaticImage
+          src="../images/transaction.png"
+          alt="A dinosaur"
+          placeholder="blurred"
+          width="568"
+          height="400"
+        />
+        <StyledCard>
+          <StyledCardHeader>
+            <StyledCardCategory>[Benefit]</StyledCardCategory>
+            <StyledCardTitle>Real time transaction monitoring</StyledCardTitle>
+          </StyledCardHeader>
+          <StyledCardContent>
+            Pingwire helps you to react before it’s too late. Evaluate all
+            your transactions and take decision in real time based on your
+            risk assessment.
+          </StyledCardContent>
+        </StyledCard>
+      </StyledBenefitCard>
+      <StyledBenefitCard $reverse>
+        <StyledCard>
+          <StyledCardHeader>
+            <StyledCardCategory>[Benefit]</StyledCardCategory>
+            <StyledCardTitle>Know-your-customer</StyledCardTitle>
+          </StyledCardHeader>
+          <StyledCardContent>
+            The KYC process should work seamlessly to not interfere with the
+            customer experience. Pingwire is built with this in mind.
+          </StyledCardContent>
+        </StyledCard>
+        <StaticImage
+          src="../images/kyc.png"
+          alt="A dinosaur"
+          placeholder="blurred"
+          width="568"
+          height="400"
+        />
+      </StyledBenefitCard>
+      <StyledBenefitCard>
+        <StaticImage
+          src="../images/compliance.png"
+          alt="A dinosaur"
+          placeholder="blurred"
+          width="568"
+          height="400"
+        />
+        <StyledCard>
+          <StyledCardHeader>
+            <StyledCardCategory>[Benefit]</StyledCardCategory>
+            <StyledCardTitle>Compliance reporting</StyledCardTitle>
+          </StyledCardHeader>
+          <StyledCardContent>
+            As you have everything in the same solution, reporting is made
+            with ease. Often you have to assemble information from several
+            sources, now you will have access to everything in one solution.
+          </StyledCardContent>
+        </StyledCard>
+      </StyledBenefitCard>
+      <LineBreak size="full" />
+    </BenefitCardsContainer>
+  </StyledContainer>
+);
 
 export default Benefits;
 
