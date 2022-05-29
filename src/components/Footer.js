@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
-import LineBreak from './LineBreak';
-import Button from './Button';
+import breakpoints from '../../contants/breakpoints';
 
-const StyledCopyRightText = styled('text')`
+const StyledCopyRightText = styled('p')`
   color: rgba(42, 42, 42, 1);
-  width: 168px;
-  height: auto;
+  margin: 0;
   font-size: 12px;
   align-self: auto;
   font-style: normal;
@@ -19,93 +17,105 @@ const StyledCopyRightText = styled('text')`
   text-decoration: none;
 `;
 
-const StyledFooter = styled('div')`
-  width: 80%;
-  display: flex;
-  padding: 0 0 32px 0;
+const StyledFooter = styled('footer')`
+  width: 100%;
   box-sizing: border-box;
+  display: flex;
   align-items: center;
-  flex-shrink: 1;
   flex-direction: column;
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  padding: 1.5rem 1rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    padding: 1.5rem 2rem;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    padding: 1.5rem 4rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    padding: 1.5rem 9.75rem;
+  }
 `;
 
 const Frame = styled('div')`
-  height: 36px;
-  margin: 10px 0 40px 0;
+  margin-bottom: 1rem;
   display: flex;
   box-sizing: border-box;
   align-items: center;
   flex-shrink: 1;
-  border-color: transparent;
+  width: 100%;
+  flex-direction: column;
 `;
 
-const GruopItems = styled('div')`
-  width: 1128px;
+const GroupItems = styled('div')`
+  width: 100%;
   display: flex;
   box-sizing: border-box;
   align-items: center;
   border-color: transparent;
   justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  @media (min-width: ${breakpoints.laptop}) {
+    flex-direction: row;
+  }
 `;
 
 const InPageNavigationGroup = styled('div')`
   display: flex;
-  left: -7%;
   position: relative;
-  width: 55%;
   box-sizing: border-box;
   flex-shrink: 1;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+
+  @media (min-width: ${breakpoints.desktop}) {
+    gap: 2rem;
+  }
 `;
 
-const Text = styled('text')({
-  color: '#214032',
-  'font-size': '20px',
-  'text-align': 'center',
-  'font-family': 'Roboto Mono',
-  'font-weight': '500px',
-});
+const FooterLink = styled('a')`
+  color: #214032;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+`;
 
 const Footer = () => (
   <StyledFooter>
-    <LineBreak size="full" />
     <Frame>
-      <GruopItems>
+      <GroupItems>
         <StaticImage
           src="../images/Pingwire_logo.svg"
           alt="A dinosaur"
           placeholder="tracedSVG"
         />
         <InPageNavigationGroup>
-          <Button as="a" href="#benefits">
-            <Text>
-              Benefits
-            </Text>
-          </Button>
-          <Button as="a" href="#capabilities">
-            <Text>
-              Capabilities
-            </Text>
-          </Button>
-          <Button as="a" href="#onboarding">
-            <Text>
-              Onboarding
-            </Text>
-          </Button>
-          <Button as="a" href="#aboutUs">
-            <Text>
-              About us
-            </Text>
-          </Button>
+          <FooterLink href="#benefits">
+            Benefits
+          </FooterLink>
+          <FooterLink href="#capabilities">
+            Capabilities
+          </FooterLink>
+          <FooterLink href="#onboarding">
+            Onboarding
+          </FooterLink>
+          <FooterLink href="#aboutUs">
+            About us
+          </FooterLink>
         </InPageNavigationGroup>
-        <Button>
+        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
           <StaticImage
             src="../images/linkedin.svg"
             alt="A dinosaur"
             placeholder="tracedSVG"
           />
-        </Button>
-      </GruopItems>
+        </a>
+      </GroupItems>
     </Frame>
     <StyledCopyRightText>Copyright &copy;{(new Date()).getFullYear()} Pingwire</StyledCopyRightText>
   </StyledFooter>

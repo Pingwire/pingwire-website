@@ -2,111 +2,177 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import LineBreak from './LineBreak';
+import breakpoints from '../../contants/breakpoints';
 
-const BenefitsRow = styled('div')({
-  'margin-top': '10%',
-  display: 'flex',
-  width: '100%',
-  'box-sizing': 'border-box',
-  'align-items': 'flex-start',
-  'flex-shrink': 1,
-  'justify-content': 'space-between',
-});
+const BenefitsRow = styled('div')`
+  display: flex;
+  width: 100%;
+  max-width: 30rem;
+  box-sizing: border-box;
+  align-items: flex-start;
+  flex-shrink: 1;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 3rem;
 
-const BenefitColumn = styled('div')({
-  display: 'flex',
-  'flex-direction': 'column',
-  position: 'relative',
-  'box-sizing': 'border-box',
-  'align-items': 'flex-start',
-  'flex-shrink': 1,
-  'border-color': 'transparent',
-});
+  @media (min-width: ${breakpoints.laptop}) {
+    max-width: 70rem;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: stretch;
+  }
 
-const BenefitColumnContent = styled('div')({
-  'padding-top': '25px',
-  'padding-bottom': '25px',
-  width: '296px',
-  height: '282px',
-  display: 'flex',
-  'box-sizing': 'border-box',
-  'align-items': 'flex-start',
-  'flex-shrink': 1,
-  'flex-direction': 'column',
-});
+  @media (min-width: ${breakpoints.tablet}) {
+    margin: 3rem 0 6rem;
+  }
+`;
 
-const StyledBenefitColumnTitleContainer = styled('div')({
-  margin: '0 0 24px 0',
-  display: 'flex',
-  'align-items': 'center',
-});
+const BenefitColumn = styled('div')`
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: flex-start;
+  flex-shrink: 1;
+  border-top: 1px solid rgba(33, 64, 50, 0.1);
+  @media (min-width: ${breakpoints.laptop}) {
+    align-items: flex-start;
+    width: 27%;
+    border-bottom: 1px solid rgba(33, 64, 50, 0.1);
+  }
+`;
 
-const StyledBenefitColumnTitleSign = styled('h2')({
-  color: 'rgba(223, 166, 57, 1)',
-  'font-size': '20px',
-  'font-family': 'Roboto Mono',
-  'text-align': 'left',
-  'font-weight': 'initial',
-});
+const BenefitColumnContent = styled('div')`
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  flex-shrink: 1;
+  flex-direction: column;
+  flex-wrap: wrap;
+  @media (min-width: ${breakpoints.laptop}) {
+    align-items: flex-start;
+  }
+`;
 
-const StyledBenefitColumnTitleText = styled('h2')({
-  color: 'rgba(33, 64, 50, 1)',
-  'font-size': '20px',
-  'font-family': 'Roboto Mono',
-  'text-align': 'left',
-  'font-weight': 'initial',
-});
+const StyledBenefitColumnTitleContainer = styled('div')`
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+`;
 
-const StyledBenefitColumnBodyText = styled('span')({
-  color: 'rgba(32, 31, 31, 1)',
-  width: '296px',
-  height: 'auto',
-  'font-size': '16px',
-  'text-align': 'left',
-  'font-family': 'Inter',
-  'font-weight': '400px',
-  'line-height': '178%',
-});
+const StyledBenefitColumnTitleSign = styled('h2')`
+  color: rgba(223, 166, 57, 1);
+  font-size: 16px;
+  font-family: Roboto Mono;
+  text-align: center;
+  font-weight: initial;
+  @media (min-width: ${breakpoints.tablet}) {
+    font-size: 18px;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    font-size: 20px;
+  }
 
-const StyledContainer = styled('div')({
-  height: '30%',
-  width: '100%',
-  display: 'flex',
-  padding: '80px 156px',
-  'box-sizing': 'border-box',
-  'align-items': 'center',
-  'flex-shrink': 1,
-  'flex-direction': 'column',
-  'justify-content': 'space-between',
-});
+`;
 
-const StyledHeader = styled('h1')({
-  color: 'rgba(33, 64, 50, 1)',
-  'font-size': '24px',
-  'text-align': 'center',
-  'font-family': 'Roboto Mono',
-  'font-weight': 'initial',
-});
+const StyledBenefitColumnTitleText = styled('h2')`
+  color: rgba(33, 64, 50, 1);
+  font-size: 16px;
+  font-family: Roboto Mono;
+  text-align: left;
+  font-weight: initial;
+  @media (min-width: ${breakpoints.tablet}) {
+    font-size: 18px;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    font-size: 20px;
+  }
+`;
 
-const StyledBenefitCard = styled('div')({
-  width: '100%',
-  display: 'flex',
-  'justify-content': 'space-between',
-  'box-sizing': 'border-box',
-  'align-items': 'center',
-  'flex-shrink': 1,
-  'border-color': 'transparent',
-});
+const StyledBenefitColumnBodyText = styled('p')`
+  margin: 0;
+  color: rgba(32, 31, 31, 1);
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400px;
+  line-height: 178%;
+  @media (min-width: ${breakpoints.laptop}) {
+    text-align: left;
+  }
+`;
 
-const StyledCard = styled('div')({
-  display: 'flex',
-  'box-sizing': 'border-box',
-  'align-items': 'flex-start',
-  'flex-shrink': 1,
-  'border-color': 'transparent',
-  'flex-direction': 'column',
-});
+const StyledContainer = styled('div')`
+  display: flex;
+  align-items: center;
+  flex-shrink: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    padding: 3rem 2rem;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    padding: 4rem 4rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    padding: 6rem 9rem;
+  }
+`;
+
+const StyledHeader = styled('h1')`
+  color: rgba(33, 64, 50, 1);
+  font-size: 24px;
+  text-align: center;
+  font-family: "Roboto Mono";
+  font-weight: initial;
+  margin-top: 0;
+  margin-bottom: 2rem;
+`;
+
+const StyledBenefitCard = styled('div')`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  align-items: center;
+  flex-shrink: 1;
+  border-color: transparent;
+  flex-wrap: ${(props) => (props.$reverse ? 'wrap-reverse' : 'wrap')};
+  margin-bottom: 3rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    .gatsby-image-wrapper {
+      width: 50%;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const StyledCard = styled('div')`
+  display: flex;
+  box-sizing: border-box;
+  align-items: flex-start;
+  flex-shrink: 1;
+  border-color: transparent;
+  flex-direction: column;
+  max-width: 35.5rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    width: 45%;
+    max-width: none;
+  }
+`;
 
 const StyledCardHeader = styled('div')({
   margin: '0 0 40px 0',
@@ -136,7 +202,7 @@ const StyledCardCategory = styled('p')({
 const StyledCardTitle = styled('h2')({
   color: '#214032',
   margin: 0,
-  width: '488px',
+  width: '100%',
   'font-size': '32px',
   'text-align': 'left',
   'font-family': 'Roboto Mono',
@@ -145,7 +211,7 @@ const StyledCardTitle = styled('h2')({
 
 const StyledCardContent = styled('h3')({
   color: '#201F1F',
-  width: '488px',
+  width: '100%',
   margin: 0,
   'font-size': '18px',
   'text-align': 'left',
@@ -154,21 +220,18 @@ const StyledCardContent = styled('h3')({
   'line-height': '178%',
 });
 
-const BenefitCardsContainer = styled('div')({
-  display: 'flex',
-  flexDirection: 'column',
-  marginTop: '10%',
-  justifyContent: 'space-between',
-  width: '100%',
-  height: '100%',
-});
+const BenefitCardsContainer = styled('div')`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+`;
 
 const Benefits = ({ id }) => (
-  <StyledContainer>
-    <StyledHeader id={id}>[Pingwire’s Benefits]</StyledHeader>
+  <StyledContainer id={id}>
+    <StyledHeader>[Pingwire’s Benefits]</StyledHeader>
     <BenefitsRow>
       <BenefitColumn>
-        <LineBreak size="small" />
         <BenefitColumnContent>
           <StyledBenefitColumnTitleContainer>
             <StyledBenefitColumnTitleSign>&gt;</StyledBenefitColumnTitleSign>
@@ -180,10 +243,8 @@ const Benefits = ({ id }) => (
             of your compliance standards.
           </StyledBenefitColumnBodyText>
         </BenefitColumnContent>
-        <LineBreak size="small" />
       </BenefitColumn>
       <BenefitColumn>
-        <LineBreak size="small" />
         <BenefitColumnContent>
           <StyledBenefitColumnTitleContainer>
             <StyledBenefitColumnTitleSign>&gt;</StyledBenefitColumnTitleSign>
@@ -195,10 +256,8 @@ const Benefits = ({ id }) => (
             connection.
           </StyledBenefitColumnBodyText>
         </BenefitColumnContent>
-        <LineBreak size="small" />
       </BenefitColumn>
       <BenefitColumn>
-        <LineBreak size="small" />
         <BenefitColumnContent>
           <StyledBenefitColumnTitleContainer>
             <StyledBenefitColumnTitleSign>&gt;</StyledBenefitColumnTitleSign>
@@ -209,7 +268,6 @@ const Benefits = ({ id }) => (
             spend your resources on what really matters.
           </StyledBenefitColumnBodyText>
         </BenefitColumnContent>
-        <LineBreak size="small" />
       </BenefitColumn>
     </BenefitsRow>
     <BenefitCardsContainer>
@@ -218,8 +276,8 @@ const Benefits = ({ id }) => (
           src="../images/transaction.png"
           alt="A dinosaur"
           placeholder="blurred"
-          width="568"
-          height="400"
+          width={568}
+          height={400}
         />
         <StyledCard>
           <StyledCardHeader>
@@ -233,7 +291,7 @@ const Benefits = ({ id }) => (
           </StyledCardContent>
         </StyledCard>
       </StyledBenefitCard>
-      <StyledBenefitCard>
+      <StyledBenefitCard $reverse>
         <StyledCard>
           <StyledCardHeader>
             <StyledCardCategory>[Benefit]</StyledCardCategory>
@@ -248,8 +306,8 @@ const Benefits = ({ id }) => (
           src="../images/kyc.png"
           alt="A dinosaur"
           placeholder="blurred"
-          width="568"
-          height="400"
+          width={568}
+          height={400}
         />
       </StyledBenefitCard>
       <StyledBenefitCard>
@@ -257,8 +315,8 @@ const Benefits = ({ id }) => (
           src="../images/compliance.png"
           alt="A dinosaur"
           placeholder="blurred"
-          width="568"
-          height="400"
+          width={568}
+          height={400}
         />
         <StyledCard>
           <StyledCardHeader>
@@ -272,7 +330,6 @@ const Benefits = ({ id }) => (
           </StyledCardContent>
         </StyledCard>
       </StyledBenefitCard>
-      <LineBreak size="full" />
     </BenefitCardsContainer>
   </StyledContainer>
 );

@@ -2,41 +2,71 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { StaticImage } from 'gatsby-plugin-image';
+import breakpoints from '../../contants/breakpoints';
 
 const Container = styled('div')`
-  width: 100%;
-  height: 14%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10%
+  flex-wrap: wrap;
+
+  padding: 2rem 1rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    padding: 3rem 2rem;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    padding: 4rem 2rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    padding: 6rem 2rem;
+  }
 `;
 
 const StyledTitle = styled('h1')`
   color: rgba(33, 64, 50, 1);
-  font-size: 24px;
+  margin-top: 0;
+  font-size: 18px;
   text-align: center;
   font-family: Roboto Mono;
   font-weight: inherit;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    font-size: 24px;
+  }
 `;
 
 const StyledSubTitle = styled('h2')`
-  width: 65%;
-  font-size: 40px;
+  max-width: 60rem;
   text-align: center;
   font-family: Roboto Mono;
   font-weight: inherit;
-  margin: 0;
+  font-size: 26px;
+  margin: 2rem 0;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    margin: 4rem 0;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    font-size: 40px;
+    margin: 6rem 0;
+  }
 `;
 
 const StyleCardRowContainer = styled('div')`
-  width: 80%;
   display: flex;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 1;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  @media (min-width: ${breakpoints.desktop}) {
+    gap: 4rem;
+  }
 `;
 
 const StyleCardColumnContainer = styled('div')`
@@ -45,13 +75,12 @@ const StyleCardColumnContainer = styled('div')`
   align-items: flex-start;
   flex-shrink: 1;
   justify-content: space-between;
-  flex-direaction: column;
+  flex-direction: column;
 `;
 
 const Card = styled('div')`
-  width: 100%;
   display: flex;
-  padding: 48px 32px;
+  padding: 3rem 2rem;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 1;
@@ -69,26 +98,27 @@ const CardHeader = styled('div')`
   width: 100%;
   margin: 0 0 40px 0;
   display: flex;
-  position: relative;
   box-sizing: border-box;
-  align-items: flex-start;
+  align-items: center;
   border-color: transparent;
   justify-content: space-between;
 `;
 
 const CardTitle = styled('h1')`
   color: rgba(255, 255, 255, 1);
-  width: 362px;
+  max-width: 362px;
+  width: 100%;
   font-size: 24px;
   text-align: left;
   font-family: Roboto Mono;
   font-weight: 700px;
   line-height: 42px;
+  margin: 2px;
 `;
 
 const CardContent = styled('h2')`
   color: #FFFFFF;
-  width: 468px;
+  max-width: 468px;
   opacity: 0.90;
   font-size: 18px;
   text-align: left;
@@ -99,8 +129,8 @@ const CardContent = styled('h2')`
 `;
 
 const Capabilities = ({ id }) => (
-  <Container>
-    <StyledTitle id={id}>[Pingwire’s capabilities]</StyledTitle>
+  <Container id={id}>
+    <StyledTitle>[Pingwire’s capabilities]</StyledTitle>
     <StyledSubTitle>Pingwire’s case handling capabilities in a snapshot</StyledSubTitle>
     <StyleCardRowContainer>
       <StyleCardColumnContainer>
@@ -135,8 +165,6 @@ const Capabilities = ({ id }) => (
           </CardContent>
         </Card>
       </StyleCardColumnContainer>
-    </StyleCardRowContainer>
-    <StyleCardRowContainer>
       <StyleCardColumnContainer>
         <Card color="yellow">
           <CardHeader>

@@ -2,22 +2,38 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 import Button from './Button';
+import breakpoints from '../../contants/breakpoints';
 
 const StyledCard = styled('div')`
-  width: 80%;
-  height: 8%;
   display: flex;
-  margin-top: 10%;
   flex-direction: column;
   box-sizing: border-box;
   flex-shrink: 1;
   align-self: center;
   background-color: rgba(33, 64, 50, 1);
+  position: relative;
+
+  margin: 0;
+  padding: 5rem 1rem 2rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    margin: 3rem 2rem;
+    padding: 2rem;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    margin: 4rem 4rem;
+    padding: 3rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    margin: 6rem 9rem;
+    padding: 4rem;
+  }
 `;
 
 const StyledHeader = styled('div')`
-  width: 100%;
-  margin: 2%;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
 `;
 
 const StyledCardContent = styled('div')`
@@ -42,21 +58,21 @@ const StyledTitle = styled('h1')`
 
 const StyledSubTitle = styled('h2')`
   color: rgba(255, 255, 255, 1);
-  width: 936px;
   font-size: 32px;
   text-align: center;
   font-family: Roboto Mono;
   font-weight: inherit;
+  margin: 3rem 0;
 `;
 
 const StyledText = styled('p')`
   color: rgba(255, 255, 255, 1);
   margin: 0;
-  width: 744px;
   font-size: 18px;
   text-align: center;
   font-family: Inter;
   line-height: 180%;
+  margin-bottom: 2rem;
 `;
 
 const Contact = () => (

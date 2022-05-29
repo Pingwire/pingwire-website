@@ -2,60 +2,71 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import LineBreak from './LineBreak';
 import TextLink from './TextLink';
+import breakpoints from '../../contants/breakpoints';
 
 const Container = styled('div')`
-  width: 80%;
-  height: 10%;
   display: flex;
+  position: relative;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: start;
-  margin-top: 10%;
+  justify-content: center;
+  flex-wrap: wrap;
   background-color: rgba(230, 235, 234, 1);
   align-self: center;
-`;
+  align-items: stretch;
+  gap: 2rem;
 
-const VerticalLine = styled('div')`
-   border-left: 1px solid rgba(33, 64, 50, 0.25);
-   height: 80%;
-   margin-top: 5%;
-`;
+  @media (min-width: ${breakpoints.laptop}) {
+    justify-content: space-between;
+  }
 
-const StyledLargeTextContainer = styled('div')`
-   width: 100%;
-   height: 15%;
-   display: flex;
-   justify-content: space-between;
-   flex-direction: column;
-   padding-left: 5%;
+  margin: 0;
+  padding: 1rem 1rem 5rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    margin: 3rem 2rem;
+    padding: 2rem;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    margin: 4rem 4rem;
+    padding: 3rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    margin: 6rem 9rem;
+    padding: 4rem;
+  }
 `;
 
 const LeftContainer = styled('div')`
-  width: 672px;
   display: flex;
-  height: 100%;
   box-sizing: border-box;
-  align-items: flex-start;
+  align-items: center;
   flex-shrink: 1;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  @media (min-width: ${breakpoints.laptop}) {
+    align-items: flex-start;
+  }
 `;
 
 const StyledLargeText = styled('h2')`
   color: #214032;
-  font-size: 48px;
-  text-align: left;
+  font-size: 32px;
+  text-align: center;
   font-family: Roboto Mono;
   font-weight: inherit;
+  margin: 0;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    font-size: 48px;
+    text-align: left;
+  }
 `;
 
 const RightContainer = styled('div')`
-  width: 288px;
-  height: 100%;
   display: flex;
   box-sizing: border-box;
   align-items: flex-start;
@@ -63,6 +74,14 @@ const RightContainer = styled('div')`
   border-color: transparent;
   flex-direction: column;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  @media (min-width: ${breakpoints.laptop}) {
+    width: 27%;
+    border-left: 1px solid rgba(33, 64, 50, 0.25);
+    padding: 2rem 0 2rem 3rem;
+  }
 `;
 
 const StyledRightContainerTitle = styled('h2')`
@@ -76,8 +95,7 @@ const StyledRightContainerTitle = styled('h2')`
 
 const StyledRightContentContainer = styled('div')`
   color: #201F1F;
-  margin: 0,
-  width: 5%;
+  margin: 0;
   opacity: 0.70;
   display: flex;
   flex-direction: column;
@@ -95,21 +113,25 @@ const StyledRightContentText = styled('p')`
 `;
 
 const RightContainerRow = styled('div')`
-  width: 80%;
-  height: 178px;
   display: flex;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 1;
   justify-content: space-between;
   flex-direction: column;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    align-items: center;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    align-items: flex-start;
+  }
 `;
 
 const StyledTitle = styled('h1')`
   color: #214032;
   height: auto;
   margin: 0;
-  padding-left: 5%;
   font-size: 24px;
   align-self: auto;
   font-style: normal;
@@ -121,21 +143,30 @@ const StyledTitle = styled('h1')`
   text-decoration: none;
 `;
 
+const IconContainer = styled('div')`
+  position: absolute;
+  margin-left: -30px;
+  right: 2rem;
+  bottom: 1rem;
+
+  @media (min-width: ${breakpoints.laptop}) {
+    position: static;
+  }
+`;
+
 const Onboarding = ({ id }) => (
   <Container id={id}>
     <LeftContainer>
       <StyledTitle>[Pingwire’s Onboarding]</StyledTitle>
-      <StyledLargeTextContainer>
-        <StyledLargeText>Easy to get started</StyledLargeText>
-        <LineBreak size="full" />
-      </StyledLargeTextContainer>
-      <StaticImage
-        src="../images/dots.svg"
-        alt="A dinosaur"
-        placeholder="tracedSVG"
-      />
+      <StyledLargeText>Easy to get started</StyledLargeText>
+      <IconContainer>
+        <StaticImage
+          src="../images/dots.svg"
+          alt="A dinosaur"
+          placeholder="tracedSVG"
+        />
+      </IconContainer>
     </LeftContainer>
-    <VerticalLine />
     <RightContainer>
       <RightContainerRow>
         <StyledRightContainerTitle>API</StyledRightContainerTitle>
@@ -161,7 +192,6 @@ const Onboarding = ({ id }) => (
       </RightContainerRow>
     </RightContainer>
   </Container>
-
 );
 
 export default Onboarding;
