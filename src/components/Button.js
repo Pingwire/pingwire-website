@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const StyledButton = styled('button')`
   display: flex;
-  padding: ${(props) => (props.size === 'big' ? '16px 32px' : '8px 16px')}; 
+  padding: ${(props) => (props.size === 'big' ? '16px 32px' : '8px 16px')};
   position: relative;
   box-sizing: border-box;
   align-items: center;
@@ -29,24 +29,15 @@ const StyledButton = styled('button')`
   border-radius: 5px;
   justify-content: center;
   text-decoration: none;
-`;
 
-const Text = styled('i')`
   color: ${(props) => {
     if (props.textColor === 'primary') return 'rgba(33, 64, 50, 1)';
     if (props.textColor === 'white') return '#FFFFFF';
     return '#FFFFFF';
   }};
-  height: auto;
   font-size: ${(props) => (props.size === 'big' ? '18px' : '16px')}; ;
-  align-self: auto;
-  font-style: normal;
-  text-align: left;
   font-family: Inter;
-  font-weight: 700px;
   line-height: 163%;
-  font-stretch: normal;
-  text-decoration: none;
 `;
 
 const Button = ({
@@ -61,7 +52,7 @@ const Button = ({
     backgroundColor={backgroundColor}
     textColor={textColor}
   >
-    <Text textColor={textColor} variant={variant} size={size}>{children}</Text>
+    {children}
   </StyledButton>
 );
 

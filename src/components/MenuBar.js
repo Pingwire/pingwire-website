@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 import Button from './Button';
@@ -26,48 +26,53 @@ const Frame = styled('header')`
 const ButtonGroup = styled('div')`
   box-sizing: border-box;
   align-items: center;
-  width: 20%;
   justify-content: space-between;
   flex-shrink: 1;
   border-color: transparent;
   display: none;
-  @media (min-width: ${breakpoints.desktop}) {
+  gap: 2rem;
+
+  @media (min-width: ${breakpoints.laptop}) {
     display: flex;
   }
 `;
 
 const DrawerContainer = styled('div')`
   display: flex;
-  @media (min-width: ${breakpoints.desktop}) {
+  @media (min-width: ${breakpoints.laptop}) {
     display: none;
   }
 `;
 
 const SideBarContainer = styled('div')`
   width: 100%;
+  box-sizing: border-box;
   align-items: end;
   display: flex;
   flex-direction: column;
+  padding: 2rem 1rem;
 `;
 
 const SideBarHeader = styled('div')`
   width: 90%;
   justify-content: space-between;
   display: flex;
-  margin-bottom: 10%;
+  margin-bottom: 2rem;
+  color: #FFF;
+  font-size: 20px;
+  align-items: center;
 `;
 
 const SideBar = styled('div')`
   max-width: 375px;
   height: 100%;
-  width: 0;
+  width: ${({ isOpen }) => (isOpen ? '100%' : '0')};
   position: fixed;
   z-index: 1;
   top: 0;
   right: 0;
   background-color: #214032;
   transition: 0.3s;
-  padding-top: 60px;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -76,26 +81,30 @@ const SideBarFooter = styled('div')`
   width: 90%;
   justify-content: space-between;
   display: flex;
-  margin: 20% 5% 0px 0px;
+  margin-top: 3rem;
 `;
 
-const Text = styled('p')`
+const MenuLink = styled('a')`
   color: #FFF;
   margin: 0;
   font-size: 20px;
   text-align: center;
   font-family: Roboto Mono;
-  font-weight: 500px;
+  line-height: 180%;
+  text-decoration: none;
 `;
 
 const MenuBar = () => {
-  const sideBarRef = useRef(null);
-  const openNav = () => {
-    sideBarRef.current.style.width = '100%';
-  };
-  const closeNav = () => {
-    sideBarRef.current.style.width = '0';
-  };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openNav = useCallback(() => {
+    setIsOpen(true);
+  }, []);
+
+  const closeNav = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
   return (
     <Frame>
       <StaticImage
@@ -123,10 +132,10 @@ const MenuBar = () => {
           />
         </Button>
       </DrawerContainer>
-      <SideBar ref={sideBarRef}>
+      <SideBar isOpen={isOpen}>
         <SideBarContainer>
           <SideBarHeader>
-            <Text>[Menu]</Text>
+            <span>[Menu]</span>
             <Button onClick={closeNav}>
               <StaticImage
                 src="../images/Union.svg"
@@ -135,26 +144,18 @@ const MenuBar = () => {
               />
             </Button>
           </SideBarHeader>
-          <Button as="a" href="#benefits" onClick={closeNav}>
-            <Text>
-              Benefits
-            </Text>
-          </Button>
-          <Button as="a" href="#capabilities" onClick={closeNav}>
-            <Text>
-              Capabilities
-            </Text>
-          </Button>
-          <Button as="a" href="#onboarding" onClick={closeNav}>
-            <Text>
-              Onboarding
-            </Text>
-          </Button>
-          <Button as="a" href="#aboutUs" onClick={closeNav}>
-            <Text>
-              About us
-            </Text>
-          </Button>
+          <MenuLink href="#benefits" onClick={closeNav}>
+            Benefits
+          </MenuLink>
+          <MenuLink href="#capabilities" onClick={closeNav}>
+            Capabilities
+          </MenuLink>
+          <MenuLink href="#onboarding" onClick={closeNav}>
+            Onboarding
+          </MenuLink>
+          <MenuLink href="#aboutUs" onClick={closeNav}>
+            About us
+          </MenuLink>
           <SideBarFooter>
             <Button as="a" href="https://app.pingwire.io/" variant="filled" textColor="white">
               Log In
