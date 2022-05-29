@@ -110,8 +110,8 @@ const StyledContainer = styled('div')`
   align-items: center;
   flex-shrink: 1;
   flex-direction: column;
-  padding: 2rem 1rem;
   justify-content: space-between;
+  padding: 2rem 1rem;
 
   @media (min-width: ${breakpoints.tablet}) {
     padding: 3rem 2rem;
