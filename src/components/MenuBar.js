@@ -95,8 +95,8 @@ const MenuBar = () => {
         src="../images/Pingwire_logo.svg"
         alt="A dinosaur"
         placeholder="tracedSVG"
-        width="150"
-        height="32"
+        width={150}
+        height={32}
         layout="constrained"
       />
       <ButtonGroup>

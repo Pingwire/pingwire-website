@@ -5,8 +5,9 @@ import LineBreak from './LineBreak';
 import Button from './Button';
 import breakpoints from '../../contants/breakpoints';
 
-const StyledCopyRightText = styled('text')`
+const StyledCopyRightText = styled('p')`
   color: rgba(42, 42, 42, 1);
+  margin: 0;
   font-size: 12px;
   align-self: auto;
   font-style: normal;

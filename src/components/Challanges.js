@@ -167,11 +167,11 @@ const Challenges = () => {
           </ChallengesListItemContainer>
           <ChallengesListItemContainer>
             <StyledCircle />
-            <ChallengesListItemTitle style={{ 'padding-top': isDesktop ? 0 : '2%' }}>Constantly changing regulations</ChallengesListItemTitle>
+            <ChallengesListItemTitle style={{ paddingTop: isDesktop ? 0 : '2%' }}>Constantly changing regulations</ChallengesListItemTitle>
           </ChallengesListItemContainer>
           <ChallengesListItemContainer position="bottom">
             <StyledCircle />
-            <ChallengesListItemTitle style={{ 'padding-top': isDesktop ? 0 : '5%' }}>Growing complexity in transactions and data</ChallengesListItemTitle>
+            <ChallengesListItemTitle style={{ paddingTop: isDesktop ? 0 : '5%' }}>Growing complexity in transactions and data</ChallengesListItemTitle>
           </ChallengesListItemContainer>
         </ChallengesListContainer>
       </StyledChallengesContainer>

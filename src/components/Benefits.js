@@ -264,8 +264,8 @@ const Benefits = ({ id }) => (
           src="../images/transaction.png"
           alt="A dinosaur"
           placeholder="blurred"
-          width="568"
-          height="400"
+          width={568}
+          height={400}
         />
         <StyledCard>
           <StyledCardHeader>
@@ -294,8 +294,8 @@ const Benefits = ({ id }) => (
           src="../images/kyc.png"
           alt="A dinosaur"
           placeholder="blurred"
-          width="568"
-          height="400"
+          width={568}
+          height={400}
         />
       </StyledBenefitCard>
       <StyledBenefitCard>
@@ -303,8 +303,8 @@ const Benefits = ({ id }) => (
           src="../images/compliance.png"
           alt="A dinosaur"
           placeholder="blurred"
-          width="568"
-          height="400"
+          width={568}
+          height={400}
         />
         <StyledCard>
           <StyledCardHeader>
