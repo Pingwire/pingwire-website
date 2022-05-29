@@ -170,7 +170,6 @@ const StyledCard = styled('div')`
 
   @media (min-width: ${breakpoints.tablet}) {
     width: 45%;
-    margin: 0;
     max-width: none;
   }
 `;

@@ -5,27 +5,35 @@ import Button from './Button';
 import breakpoints from '../../contants/breakpoints';
 
 const StyledCard = styled('div')`
-  width: 100%;
   display: flex;
-  margin-top: 10%;
   flex-direction: column;
   box-sizing: border-box;
   flex-shrink: 1;
   align-self: center;
   background-color: rgba(33, 64, 50, 1);
-  padding: 5%;
-  margin-bottom: 10%;
+  position: relative;
+
+  margin: 0;
+  padding: 5rem 1rem 1rem;
+
   @media (min-width: ${breakpoints.tablet}) {
-    width: 80%;
-    padding: 0% 10% 10% 10%;
-    
+    margin: 3rem 2rem;
+    padding: 2rem;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    margin: 4rem 4rem;
+    padding: 3rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    margin: 6rem 9rem;
+    padding: 4rem;
   }
 `;
 
 const StyledHeader = styled('div')`
-  width: 100%;
-  margin: 2%;
-  padding-bottom: 2%;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
 `;
 
 const StyledCardContent = styled('div')`
@@ -54,6 +62,7 @@ const StyledSubTitle = styled('h2')`
   text-align: center;
   font-family: Roboto Mono;
   font-weight: inherit;
+  margin: 3rem 0;
 `;
 
 const StyledText = styled('p')`
@@ -63,7 +72,7 @@ const StyledText = styled('p')`
   text-align: center;
   font-family: Inter;
   line-height: 180%;
-  padding-bottom: 5%
+  margin-bottom: 2rem;
 `;
 
 const Contact = () => (

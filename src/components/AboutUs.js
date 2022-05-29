@@ -5,15 +5,32 @@ import PropTypes from 'prop-types';
 import breakpoints from '../../contants/breakpoints';
 
 const Container = styled('div')`
-  width: 80%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-self: center;
   align-items: center;
-  margin-top: 10%;
   flex-wrap: wrap-reverse;
 
+  padding: 2rem 1rem;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    padding: 3rem 2rem;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    padding: 4rem 4rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    padding: 6rem 9rem;
+  }
+
+  @media (min-width: ${breakpoints.laptop}) {
+    justify-content: space-between;
+
+    .gatsby-image-wrapper {
+      width: 50%;
+    }
+  }
 `;
 
 const StyledCard = styled('div')`
@@ -23,16 +40,18 @@ const StyledCard = styled('div')`
   flex-shrink: 1;
   border-color: transparent;
   flex-direction: column;
-  flex-wrap: wrap;
-  padding-top: 5%;
-  @media (min-width: ${breakpoints.desktop}) {
-    width: 50%;
-    padding-top: 0%;
+  max-width: 35.5rem;
+  margin-top: 2rem;
+
+  @media (min-width: ${breakpoints.laptop}) {
+    width: 45%;
+    max-width: none;
+    margin-top: 0;
   }
 `;
 
 const StyledHeader = styled('div')`
-  margin: 0 0 10% 0;
+  margin: 0 0 40px 0;
   display: flex;
   box-sizing: border-box;
   align-items: flex-start;
