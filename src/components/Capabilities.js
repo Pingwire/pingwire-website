@@ -176,8 +176,8 @@ const Capabilities = ({ id }) => (
             />
           </CardHeader>
           <CardContent>
-            One connection to rule them all.
-            You will have access to all the information you might need to be compliant.
+            Get an overview on what matters and what doesn´t.
+            Pingwire helps you spend your time wisely.
           </CardContent>
         </Card>
       </StyleCardColumnContainer>
