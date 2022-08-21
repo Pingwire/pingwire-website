@@ -6,3 +6,6 @@
 ## Development
 - Dev server: `npm run develop`
 - Build and serve: `npm run build && npm run serve`
+
+## Deployment
+Deploys automatically on Netlify
