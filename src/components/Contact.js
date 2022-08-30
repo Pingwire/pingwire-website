@@ -61,7 +61,7 @@ const StyledSubTitle = styled('h2')`
   font-size: 32px;
   text-align: center;
   font-family: Roboto Mono;
-  font-weight: inherit;
+  font-weight: bold;
   margin: 3rem 0;
 `;
 

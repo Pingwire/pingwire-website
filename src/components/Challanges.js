@@ -156,7 +156,7 @@ const StyledTitle = styled('h1')`
   margin: 0;
   font-size: 26px;
   font-family: Roboto Mono;
-  font-weight: inherit;
+  font-weight: bold;
   text-align: left;
 
   @media (min-width: ${breakpoints.laptop}) {

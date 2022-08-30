@@ -36,7 +36,7 @@ const StyledHeroHeadline = styled('h1')`
   font-style: normal;
   text-align: center;
   font-family: Roboto Mono;
-  font-weight: initial;
+  font-weight: bold;
   line-height: 37px;
   font-stretch: normal;
   margin-top: 0;
