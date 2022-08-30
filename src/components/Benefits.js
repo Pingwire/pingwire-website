@@ -82,7 +82,7 @@ const StyledBenefitColumnTitleText = styled('h2')`
   font-size: 16px;
   font-family: Roboto Mono;
   text-align: left;
-  font-weight: initial;
+  font-weight: bold;
   @media (min-width: ${breakpoints.tablet}) {
     font-size: 18px;
   }
@@ -206,7 +206,7 @@ const StyledCardTitle = styled('h2')({
   'font-size': '32px',
   'text-align': 'left',
   'font-family': 'Roboto Mono',
-  'font-weight': 'initial',
+  'font-weight': 'bold',
 });
 
 const StyledCardContent = styled('h3')({

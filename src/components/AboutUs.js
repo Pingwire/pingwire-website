@@ -72,7 +72,7 @@ const StyledTitle = styled('h1')`
   margin: 0px;
   font-size: 32px;
   font-family: Roboto Mono;
-  font-weight: inherit;
+  font-weight: bold;
 `;
 
 const StyledContentText = styled('p')`

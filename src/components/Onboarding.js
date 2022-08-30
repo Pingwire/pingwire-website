@@ -57,7 +57,7 @@ const StyledLargeText = styled('h2')`
   font-size: 32px;
   text-align: center;
   font-family: Roboto Mono;
-  font-weight: inherit;
+  font-weight: bold;
   margin: 0;
 
   @media (min-width: ${breakpoints.tablet}) {
