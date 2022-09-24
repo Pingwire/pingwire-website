@@ -15,7 +15,6 @@ const StyledPage = styled('div')`
   max-width: 1440px;
   flex-direction: column;
   align-items: center;
-  overflow: auto;
   align-self: center;
 `;
 
