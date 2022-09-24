@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import LineBreak from './LineBreak';
 import Footer from './Footer';
 
