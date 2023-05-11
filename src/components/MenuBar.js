@@ -119,7 +119,7 @@ const MenuBar = () => {
         <Button as="a" href="https://app.pingwire.io/" variant="none" textColor="primary">
           Log In
         </Button>
-        <Button as="a" href="mailto:sales@pingwire.io" variant="outlined" textColor="primary">
+        <Button to="/contact/" variant="outlined" textColor="primary">
           Book demo
         </Button>
       </ButtonGroup>

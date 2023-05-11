@@ -207,7 +207,7 @@ const Challenges = () => {
           </StyledCardTextContainer>
         </StyledCardContainer>
         <ButtonContainer>
-          <Button as="a" href="mailto:sales@pingwire.io" variant="outlined" textColor="primary">
+          <Button to="/contact/" variant="outlined" textColor="primary">
             Book demo
           </Button>
         </ButtonContainer>
