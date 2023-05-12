@@ -15,13 +15,25 @@ const Form = () => (
         layout="constrained"
       />
     </Link>
-    <form className="styled-form" name="contact" method="post" data-netlify="true" action="/thank-you">
+    <form
+      className="styled-form"
+      name="contact"
+      method="post"
+      data-netlify="true"
+      action="/thank-you"
+      netlify-honeypot="bot-field"
+    >
       <input type="hidden" name="form-name" value="contact" />
       <input
         type="hidden"
         name="subject"
         value="New lead"
       />
+      <p hidden>
+        <label hidden>
+          Don’t fill this out if you’re human: <input name="bot-field" />
+        </label>
+      </p>
       <p>
         <label className="styled-label">Your Name:</label>
         <input className="styled-input" type="text" name="name" />
