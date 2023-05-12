@@ -16,16 +16,17 @@ const Container = styled.div`
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  padding: 4%;
   border-radius: 10px;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   background: rgba(33, 64, 50, 1);
   color: white;
-  width: 100%;
+  width: 95%;
   max-width: 400px;
 
   @media (min-width: 768px) {
     width: 50%;
+    padding: 2%;
   }
 `;
 
@@ -76,13 +77,12 @@ const StyledButton = styled.button`
 const Form = () => (
   <Container>
     <StaticImage
-      src="../images/Pingwire_logo.svg"
-      alt="A dinosaur"
-      placeholder="pingwire logo"
-      layout="fixed"
+      src="../images/Pingwire_logo.png"
+      alt="Pingwire logo"
+      placeholder="tracedSVG"
+      layout="constrained"
     />
     <StyledForm name="contact" method="POST" netlify>
-
       <input
         type="hidden"
         name="subject"
