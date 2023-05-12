@@ -96,8 +96,7 @@ const Contact = () => (
         backgroundColor="white"
         textColor="primary"
         size="big"
-        as="a"
-        href="mailto:sales@pingwire.io"
+        to="/contact/"
       >
         Book demo
       </Button>

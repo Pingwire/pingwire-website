@@ -12,7 +12,14 @@ const Container = styled('div')`
 
 const StyledPage = styled('div')`
   display: flex;
-  max-width: 1440px;
+  max-width: ${(props) => {
+    if (props.fullWidth) return 'none';
+    return '1440px';
+  }};
+  width: ${(props) => {
+    if (props.fullWidth) return '100%';
+    return 'none';
+  }};
   flex-direction: column;
   align-items: center;
   align-self: center;
@@ -26,27 +33,46 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Page = ({ children }) => (
+const Page = ({
+  children,
+  footer = true,
+  fullWidth,
+  title,
+  metaDescription,
+}) => (
   <Container>
-    <StyledPage>
+    <StyledPage fullWidth={fullWidth}>
       <Helmet htmlAttributes={{ lang: 'en-GB' }}>
         <meta charSet="utf-8" />
-        <title>Pingwire</title>
+        <title>{title}</title>
         <meta
           name="description"
-          content="Money laundering and terrorism financing detection system. Powered by complex AI model using PSD2 data for advanced insights"
+          content={metaDescription}
         />
       </Helmet>
       <GlobalStyle />
       {children}
-      <LineBreak size="full" />
-      <Footer />
+      {footer && (
+      <>
+        <LineBreak size="full" />
+        <Footer />
+      </>
+      )}
     </StyledPage>
   </Container>
 );
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,
+  footer: PropTypes.bool,
+  fullWidth: PropTypes.bool,
+  title: PropTypes.string.isRequired,
+  metaDescription: PropTypes.string.isRequired,
+};
+
+Page.defaultProps = {
+  footer: true,
+  fullWidth: false,
 };
 
 export default Page;

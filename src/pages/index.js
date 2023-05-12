@@ -12,7 +12,7 @@ import Contact from '../components/Contact';
 import LineBreak from '../components/LineBreak';
 
 const Home = () => (
-  <Page>
+  <Page title="Pingwire" metaDescription="Money laundering and terrorism financing detection system. Powered by complex AI model using PSD2 data for advanced insights">
     <MenuBar />
     <Hero />
     <Benefits id="benefits" />

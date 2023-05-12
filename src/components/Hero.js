@@ -103,7 +103,7 @@ const Hero = () => (
           financing standards.
         </StyledHeroBody>
         <StyledButtonCard>
-          <Button as="a" href="mailto:sales@pingwire.io" variant="filled" size="big">
+          <Button to="/contact/" variant="filled" size="big">
             Book demo
           </Button>
         </StyledButtonCard>

@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
-const StyledButton = styled('button')`
+const StyledButton = styled(Link)`
   display: flex;
   padding: ${(props) => (props.size === 'big' ? '16px 32px' : '8px 16px')};
   position: relative;
@@ -41,13 +42,11 @@ const StyledButton = styled('button')`
 `;
 
 const Button = ({
-  as, href, children, variant, size, backgroundColor, textColor, onClick,
+  to, children, variant, size, backgroundColor, textColor,
 }) => (
   <StyledButton
-    onClick={onClick}
     variant={variant}
-    as={as}
-    href={href}
+    to={to}
     size={size}
     backgroundColor={backgroundColor}
     textColor={textColor}
@@ -57,9 +56,7 @@ const Button = ({
 );
 
 Button.propTypes = {
-  as: PropTypes.string,
-  onClick: PropTypes.func,
-  href: PropTypes.string,
+  to: PropTypes.string,
   variant: PropTypes.string,
   size: PropTypes.string,
   backgroundColor: PropTypes.string,
@@ -68,13 +65,11 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  as: undefined,
-  href: '',
+  to: '',
   variant: '',
   size: '',
   backgroundColor: undefined,
   textColor: undefined,
-  onClick: undefined,
 };
 
 export default Button;
