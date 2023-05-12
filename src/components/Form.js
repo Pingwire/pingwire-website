@@ -82,7 +82,8 @@ const Form = () => (
       placeholder="tracedSVG"
       layout="constrained"
     />
-    <StyledForm name="contact" method="POST" netlify>
+    <StyledForm name="contact" method="post" netlify>
+      <input type="hidden" name="form-name" value="contact" />
       <input
         type="hidden"
         name="subject"
