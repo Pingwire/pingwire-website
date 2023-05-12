@@ -20,7 +20,7 @@ const Form = () => (
       <input
         type="hidden"
         name="subject"
-        value="New lead from %{formName} (%{submissionId})"
+        value="New lead"
       />
       <p>
         <label className="styled-label">Your Name:</label>
