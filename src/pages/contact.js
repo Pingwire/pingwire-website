@@ -2,8 +2,8 @@ import React from 'react';
 
 import Form from '../components/Form';
 
-const Home = () => (
+const Contact = () => (
   <Form />
 );
 
-export default Home;
+export default Contact;

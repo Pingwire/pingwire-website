@@ -12,7 +12,7 @@ const Form = () => (
       placeholder="tracedSVG"
       layout="constrained"
     />
-    <form className="styled-form" name="contact" method="post" netlify data-netlify-recaptcha="true">
+    <form className="styled-form" name="contact" method="post" data-netlify="true" data-netlify-recaptcha="true">
       <input type="hidden" name="form-name" value="contact" />
       <input
         type="hidden"
