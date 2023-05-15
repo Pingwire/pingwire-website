@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from './Button';
+
+import LinkButton from './LinkButton';
+
 import breakpoints from '../../contants/breakpoints';
 import useMediaQuery from '../hooks/useMediaQuery';
 
@@ -207,9 +209,9 @@ const Challenges = () => {
           </StyledCardTextContainer>
         </StyledCardContainer>
         <ButtonContainer>
-          <Button to="/contact/" variant="outlined" textColor="primary">
+          <LinkButton to="/contact/" variant="outlined" textColor="primary">
             Book demo
-          </Button>
+          </LinkButton>
         </ButtonContainer>
       </StyledCard>
     </Container>

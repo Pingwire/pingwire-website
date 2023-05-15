@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
-import Button from './Button';
+
+import LinkButton from './LinkButton';
+
 import breakpoints from '../../contants/breakpoints';
 
 const StyledHero = styled('div')`
@@ -103,9 +105,9 @@ const Hero = () => (
           financing standards.
         </StyledHeroBody>
         <StyledButtonCard>
-          <Button to="/contact/" variant="filled" size="big">
+          <LinkButton to="/contact/" variant="filled" size="big">
             Book demo
-          </Button>
+          </LinkButton>
         </StyledButtonCard>
       </StyledHeroHeader>
     </StyledHeroContent>
