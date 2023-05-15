@@ -1,7 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
+
 import Button from './Button';
+import LinkButton from './LinkButton';
+
 import breakpoints from '../../contants/breakpoints';
 
 const Frame = styled('header')`
@@ -119,9 +122,9 @@ const MenuBar = () => {
         <Button as="a" href="https://app.pingwire.io/" variant="none" textColor="primary">
           Log In
         </Button>
-        <Button to="/contact/" variant="outlined" textColor="primary">
+        <LinkButton to="/contact/" variant="outlined" textColor="primary">
           Book demo
-        </Button>
+        </LinkButton>
       </ButtonGroup>
       <DrawerContainer>
         <Button onClick={openNav}>
@@ -160,9 +163,9 @@ const MenuBar = () => {
             <Button as="a" href="https://app.pingwire.io/" variant="filled" textColor="white">
               Log In
             </Button>
-            <Button as="a" href="mailto:sales@pingwire.io" variant="outlined" textColor="white">
+            <LinkButton to="/contact/" variant="outlined" textColor="primary">
               Book demo
-            </Button>
+            </LinkButton>
           </SideBarFooter>
         </SideBarContainer>
       </SideBar>

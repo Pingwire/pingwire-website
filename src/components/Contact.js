@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
-import Button from './Button';
+import LinkButton from './LinkButton';
 import breakpoints from '../../contants/breakpoints';
 
 const StyledCard = styled('div')`
@@ -91,7 +91,7 @@ const Contact = () => (
         Send us a email and we will come back to you as soon
         as possible.
       </StyledText>
-      <Button
+      <LinkButton
         variant="filled"
         backgroundColor="white"
         textColor="primary"
@@ -99,7 +99,7 @@ const Contact = () => (
         to="/contact/"
       >
         Book demo
-      </Button>
+      </LinkButton>
     </StyledCardContent>
   </StyledCard>
 );
