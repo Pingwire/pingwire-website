@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Page from '../components/Page';
-import Button from '../components/Button';
+import LinkButton from '../components/LinkButton';
 
 const Container = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const ThankYouPage = () => (
   <Page title="Thank you | Pingwire" metaDescription="Thank you" footer={false} fullWidth>
     <Container>
       <Message>Thank you for your submission!</Message>
-      <Button to="/" variant="filled" size="big">Go Back Home</Button>
+      <LinkButton to="/" variant="filled" size="big">Go Back Home</LinkButton>
     </Container>
   </Page>
 );
