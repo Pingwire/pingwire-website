@@ -123,7 +123,7 @@ const MenuBar = () => {
           Log In
         </Button>
         <LinkButton to="/contact/" variant="outlined" textColor="primary">
-          Book demo
+          Contact Us
         </LinkButton>
       </ButtonGroup>
       <DrawerContainer>
@@ -164,7 +164,7 @@ const MenuBar = () => {
               Log In
             </Button>
             <LinkButton to="/contact/" variant="outlined" textColor="primary">
-              Book demo
+              Contact Us
             </LinkButton>
           </SideBarFooter>
         </SideBarContainer>

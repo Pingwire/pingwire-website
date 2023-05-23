@@ -210,7 +210,7 @@ const Challenges = () => {
         </StyledCardContainer>
         <ButtonContainer>
           <LinkButton to="/contact/" variant="outlined" textColor="primary">
-            Book demo
+            Contact Us
           </LinkButton>
         </ButtonContainer>
       </StyledCard>

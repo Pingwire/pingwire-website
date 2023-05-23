@@ -98,7 +98,7 @@ const Contact = () => (
         size="big"
         to="/contact/"
       >
-        Book demo
+        Contact Us
       </LinkButton>
     </StyledCardContent>
   </StyledCard>

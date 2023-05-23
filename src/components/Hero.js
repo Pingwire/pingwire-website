@@ -106,7 +106,7 @@ const Hero = () => (
         </StyledHeroBody>
         <StyledButtonCard>
           <LinkButton to="/contact/" variant="filled" size="big">
-            Book demo
+            Contact Us
           </LinkButton>
         </StyledButtonCard>
       </StyledHeroHeader>
