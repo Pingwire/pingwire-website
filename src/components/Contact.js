@@ -88,8 +88,7 @@ const Contact = () => (
       <StyledTitle>[Get in touch]</StyledTitle>
       <StyledSubTitle>Let us show how we can improve your AML &amp; CTF processes</StyledSubTitle>
       <StyledText>
-        Send us a email and we will come back to you as soon
-        as possible.
+        Please contact us and we will come back to you as soon as possible.
       </StyledText>
       <LinkButton
         variant="filled"
