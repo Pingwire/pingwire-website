@@ -17,7 +17,7 @@ const StyledPage = styled('div')`
     return '1440px';
   }};
   width: ${(props) => {
-    if (props.fullWidth) return '100%';
+    if (props.fullWidth) return '99.9%';
     return 'none';
   }};
   flex-direction: column;

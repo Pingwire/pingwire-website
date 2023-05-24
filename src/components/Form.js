@@ -1,20 +1,30 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { StaticImage } from 'gatsby-plugin-image';
-import { Link } from 'gatsby';
+
 import React from 'react';
 import '../styles.css';
+import styled from 'styled-components';
+
+const StyledHeader = styled('h1')`
+  color: rgba(33, 64, 50, 1);
+  font-size:48px;
+  margin: 0;
+  text-align: center;
+  font-family: Roboto Mono;
+`;
+
+const StyledSubHeader = styled('h2')`
+  color: rgba(33, 64, 50, 1);
+  font-size:16px;
+  margin: 0;
+  text-align: center;
+  font-family: Roboto Mono;
+`;
 
 const Form = () => (
   <div className="container">
-    <Link to="/">
-      <StaticImage
-        src="../images/Pingwire_logo.png"
-        alt="Pingwire logo"
-        placeholder="tracedSVG"
-        layout="constrained"
-      />
-    </Link>
+    <StyledHeader>Contact Us</StyledHeader>
+    <StyledSubHeader>Please send us a message and we’ll get back to you as soon as we can</StyledSubHeader>
     <form
       className="styled-form"
       name="contact"
@@ -55,7 +65,7 @@ const Form = () => (
         <textarea required className="styled-textarea" name="message" />
       </p>
       <p className="full-size-paragraph">
-        <button className="styled-button" type="submit">Send</button>
+        <button className="styled-button" type="submit">Contact Us</button>
       </p>
     </form>
   </div>
