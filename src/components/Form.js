@@ -36,17 +36,25 @@ const Form = () => (
       </p>
       <p>
         <label className="styled-label">Your Name:</label>
-        <input className="styled-input" type="text" name="name" />
+        <input required className="styled-input" type="text" name="name" />
+      </p>
+      <p>
+        <label className="styled-label">Company Name:</label>
+        <input className="styled-input" type="text" name="companyName" />
       </p>
       <p>
         <label className="styled-label">Your Email:</label>
-        <input className="styled-input" type="email" name="email" />
+        <input required className="styled-input" type="email" name="email" />
       </p>
       <p>
+        <label className="styled-label">Phone number:</label>
+        <input className="styled-input" type="text" name="phoneNumber" />
+      </p>
+      <p className="full-size-paragraph">
         <label className="styled-label">Message:</label>
-        <textarea className="styled-textarea" name="message" />
+        <textarea required className="styled-textarea" name="message" />
       </p>
-      <p>
+      <p className="full-size-paragraph">
         <button className="styled-button" type="submit">Send</button>
       </p>
     </form>
