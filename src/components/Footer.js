@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
+import { Link } from 'gatsby';
 import breakpoints from '../../contants/breakpoints';
 
 const StyledCopyRightText = styled('p')`
@@ -26,7 +27,6 @@ const StyledFooter = styled('footer')`
   flex-shrink: 1;
   flex-wrap: wrap;
   padding: 1.5rem 1rem;
-
   @media (min-width: ${breakpoints.tablet}) {
     padding: 1.5rem 2rem;
   }
@@ -78,7 +78,7 @@ const InPageNavigationGroup = styled('div')`
   }
 `;
 
-const FooterLink = styled('a')`
+const FooterLink = styled(Link)`
   color: #214032;
   font-size: 20px;
   text-align: center;
@@ -89,22 +89,24 @@ const Footer = () => (
   <StyledFooter>
     <Frame>
       <GroupItems>
-        <StaticImage
-          src="../images/Pingwire_logo.svg"
-          alt="A dinosaur"
-          placeholder="tracedSVG"
-        />
+        <Link to="/">
+          <StaticImage
+            src="../images/Pingwire_logo.svg"
+            alt="A dinosaur"
+            placeholder="tracedSVG"
+          />
+        </Link>
         <InPageNavigationGroup>
-          <FooterLink href="#benefits">
+          <FooterLink to="/#benefits">
             Benefits
           </FooterLink>
-          <FooterLink href="#capabilities">
+          <FooterLink to="/#capabilities">
             Capabilities
           </FooterLink>
-          <FooterLink href="#onboarding">
+          <FooterLink to="/#onboarding">
             Onboarding
           </FooterLink>
-          <FooterLink href="#aboutUs">
+          <FooterLink to="/#aboutUs">
             About us
           </FooterLink>
         </InPageNavigationGroup>

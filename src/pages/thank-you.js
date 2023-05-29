@@ -21,7 +21,7 @@ const Message = styled.h1`
 const ThankYouPage = () => (
   <Page title="Thank you | Pingwire" metaDescription="Thank you" footer={false} fullWidth>
     <Container>
-      <Message>Thank you for your submission!</Message>
+      <Message>Thank you for reaching out! We will get back to you as soon as we can.</Message>
       <LinkButton to="/" variant="filled" size="big">Go Back Home</LinkButton>
     </Container>
   </Page>

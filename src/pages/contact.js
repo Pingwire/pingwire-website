@@ -4,7 +4,7 @@ import Form from '../components/Form';
 import Page from '../components/Page';
 
 const Contact = () => (
-  <Page title="Contact us | Pingwire" metaDescription="Contact us" footer={false} fullWidth>
+  <Page title="Contact us | Pingwire" metaDescription="Contact us" fullWidth>
     <Form />
   </Page>
 );
