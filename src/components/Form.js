@@ -49,7 +49,7 @@ const Form = () => (
         <input required className="styled-input" type="text" name="name" />
       </p>
       <p>
-        <label className="styled-label">Company Name:</label>
+        <label className="styled-label">Company Name (optional):</label>
         <input className="styled-input" type="text" name="companyName" />
       </p>
       <p>
@@ -57,7 +57,7 @@ const Form = () => (
         <input required className="styled-input" type="email" name="email" />
       </p>
       <p>
-        <label className="styled-label">Phone number:</label>
+        <label className="styled-label">Phone number (optional):</label>
         <input className="styled-input" type="text" name="phoneNumber" />
       </p>
       <p className="full-size-paragraph">
