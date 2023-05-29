@@ -43,7 +43,7 @@
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: rgba(33, 64, 50, 0.1);
-    width: calc(100% - 8px - 2px);
+    width: calc(100% - 16px - 2px);
     font-size: 16px;
     outline: none;
   }
